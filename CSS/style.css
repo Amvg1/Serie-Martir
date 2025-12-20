@@ -11,7 +11,7 @@
 }
 
 html {
-    font-size: 62.5%;
+    font-size: 60%;
     overflow: hidden;
     scroll-padding-top: 9rem;
     scroll-behavior: smooth;
@@ -28,18 +28,18 @@ html::-webkit-scrollbar-thumb {
 }
 
 body {
-    background: #eee;
+    background: #fff;
 }
 section {
-    padding: 2rem 7%;
+    padding: 2rem;
 }
 
 .header {
     background: #f2f5f7;
     display: flex;
     align-items: center;
-    padding: 1rem 7%;
-    border-bottom: .1rem solid rgba(255,255,255,.3);
+    padding: 0 3rem;
+    border-bottom: .1rem solid rgba(117, 117, 117, 0.3);
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 1000;
@@ -58,26 +58,44 @@ section {
     color: #f2f5f7;
     padding-bottom: .5rem;
 }
+.header .navbar .logo img {
+    padding-top: 18px;
+}
 .header .navbar ul {
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    background-color: #f2f5f7;
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+    display: block;
+    transition: all 0.3s ease;
+}
+.header .navbar ul.open {
+    left: 0;
+    margin-top: .5rem;
 }
 .header .navbar ul li {
-    margin: 0 5px;
+    width: 100%;
+    margin: 50px 0;
 }
 .header .navbar ul li a {
-    font-size: 1.5rem;
-    font-weight: lighter;
+    font-size: 23px;
     letter-spacing: .1rem;
-    color: #ccc;
+    color: #282828;
     text-decoration: none;
     padding: 8px 15px;
     border-radius: 5px;
     transition: all 0.3s ease;
 }
+.header .navbar ul li a.active {
+    background: none;
+    color: #820101;
+}
 .header .navbar .menu-btn i {
-    display: none;
-    color: #eee;
+    display: block;
+    color: #282828;
     cursor: pointer;
+    font-size: 20px;
 }
