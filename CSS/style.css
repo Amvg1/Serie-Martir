@@ -130,6 +130,8 @@ hr {
     padding-right: 1rem;
 }
 
+/* CSS para seção SOBRE*/
+
 .sobre .container {
     display: flex;
     justify-content: center;
@@ -165,6 +167,48 @@ hr {
     cursor: pointer;
     text-decoration: none;
 }
+
+/* CSS para seção inscrição ADULTOS*/
+.insc-adultos .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    gap: 20px;
+    padding: 20px;
+    flex-wrap: wrap;
+    background-color: #f2f5f781;
+    border-radius: 15px;
+}
+
+.insc-adultos .container .box{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.insc-adultos .container .box .content p{
+    font-size: 14px;
+    text-align: justify;
+}
+
+.insc-adultos .container .btn{
+    display: inline-block;
+    font-size: 1.2rem;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 7px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #820101;
+    letter-spacing: .1rem;
+    border: .2rem solid #820101;
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
 
 .footer {
     background: #282828;
