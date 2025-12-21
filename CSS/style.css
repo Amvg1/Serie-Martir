@@ -12,7 +12,7 @@
 
 html {
     font-size: 60%;
-    overflow: hidden;
+    overflow: scroll;
     scroll-padding-top: 9rem;
     scroll-behavior: smooth;
 }
