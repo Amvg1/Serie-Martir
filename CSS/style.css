@@ -6,7 +6,7 @@
     box-sizing: border-box;
     outline: none; border: none;
     text-decoration: none;
-    text-transform: capitalize;
+    text-transform: none;
     transition: .2s linear;
 }
 
@@ -98,6 +98,72 @@ section {
     color: #282828;
     cursor: pointer;
     font-size: 20px;
+}
+
+.inicio {
+    background: url(../IMG/banner.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-top: 8.9rem;
+    padding-bottom: 5rem;
+}
+.inicio .content {
+    text-align: right;
+}
+.inicio .content h1 {
+    font-size: 2rem;
+    color: #282828;
+    padding-right: 1rem;
+}
+hr {
+    border: none;
+    height: .3rem;
+    width: 15rem;
+    background-color: #820101;
+    margin-left: 18rem;
+    margin-top: 1rem;
+    margin-bottom: .5rem;
+}
+.inicio .content p {
+    font-size: 1.4rem;
+    color: #282828;
+    padding-right: 1rem;
+}
+
+.sobre .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    gap: 20px;
+    padding: 20px;
+    flex-wrap: wrap;
+    background-color: #f2f5f781;
+    border-radius: 15px;
+}
+.sobre .container .box {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+.sobre .container .box .content p {
+    font-size: 14px;
+    text-align: justify;
+}
+.sobre .container .btn {
+    display: inline-block;
+    font-size: 1.2rem;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 7px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #820101;
+    letter-spacing: .1rem;
+    border: .2rem solid #820101;
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .footer {
