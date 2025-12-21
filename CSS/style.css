@@ -168,7 +168,7 @@ hr {
     text-decoration: none;
 }
 
-/* CSS para seção inscrição ADULTOS*/
+/* CSS inscrição ADULTOS*/
 .insc-adultos .container{
     display: flex;
     justify-content: center;
@@ -209,7 +209,7 @@ hr {
 }
 /*=================================*/
 
-/* CSS para seção inscrição desbravadores*/
+/* CSS inscrição desbravadores*/
 .insc-desbravadores .container{
     display: flex;
     justify-content: center;
