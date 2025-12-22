@@ -12,7 +12,7 @@
 
 html {
     font-size: 60%;
-    overflow: hidden;
+    overflow: scroll;
     scroll-padding-top: 9rem;
     scroll-behavior: smooth;
 }
@@ -34,6 +34,7 @@ section {
     padding: 2rem;
 }
 
+/* Cabeçalho */
 .header {
     background: #f2f5f7;
     display: flex;
@@ -100,6 +101,7 @@ section {
     font-size: 20px;
 }
 
+/* Banner e slogan */
 .inicio {
     background: url(../IMG/banner.jpg) no-repeat;
     background-size: cover;
@@ -130,7 +132,8 @@ hr {
     padding-right: 1rem;
 }
 
-.sobre .container {
+/* Classes gerais */
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -141,16 +144,19 @@ hr {
     background-color: #f2f5f781;
     border-radius: 15px;
 }
-.sobre .container .box {
+.container .box {
     display: flex;
     align-items: center;
     gap: 50px;
 }
-.sobre .container .box .content p {
+.container .box .content {
+    text-align: right;
+}
+.container .box .content p {
     font-size: 14px;
     text-align: justify;
 }
-.sobre .container .btn {
+.container .btn {
     display: inline-block;
     font-size: 1.2rem;
     height: 25px;
@@ -166,6 +172,7 @@ hr {
     text-decoration: none;
 }
 
+/* Rodapé */
 .footer {
     background: #282828;
     padding: 2rem;
