@@ -3,6 +3,10 @@ const footerTemplate = document.createElement('template');
 footerTemplate.innerHTML = `
     <style>
         .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
         background: #282828;
         padding: 2rem;
     }
