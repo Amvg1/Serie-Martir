@@ -1,0 +1,139 @@
+.carousel-card {
+    width: 92%;
+    margin: 20px auto;
+    padding: 16px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.carousel-title {
+    text-align: justify;
+    font-size: 16px;
+    font-weight: 600;
+    color: #181818;
+    margin-bottom: 12px;
+    opacity: 1;
+    transition: opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity;
+}
+
+#slider {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    touch-action: pan-y;
+}
+
+/* Radios invisíveis */
+#slider input[type=radio] {
+    display: none;
+}
+
+/* Slides */
+#slides {
+    position: relative;
+    padding: 0;
+}
+
+#overflow {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+#slides .inner {
+    width: calc(100% * 6); /* 6 slides */
+    height: 300px;
+    display: flex;
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+}
+
+/* Movimento */
+#slide1:checked ~ #slides .inner { margin-left: 0; }
+#slide2:checked ~ #slides .inner { margin-left: -100%; }
+#slide3:checked ~ #slides .inner { margin-left: -200%; }
+#slide4:checked ~ #slides .inner { margin-left: -300%; }
+
+/* Slide individual */
+#slides .slide {
+    width: calc(100% / 6);
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0;
+}
+
+/* Overlay no rodapé */
+#slides .slide::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 45%;
+
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.55),
+        rgba(0, 0, 0, 0)
+    );
+
+    opacity: 0.85;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    will-change: opacity;
+}
+
+/* Imagens */
+.slide_1 { background-image: url(./IMG/2021.JPG); }
+.slide_2 { background-image: url(./IMG/2022.jpg); }
+.slide_3 { background-image: url(./IMG/2023.jpg); }
+.slide_4 { background-image: url(./IMG/2025.jpg); }
+
+/* Overlay mais fraco nos slides inativos */
+#slide1:not(:checked) ~ #slides .slide_1::after,
+#slide2:not(:checked) ~ #slides .slide_2::after,
+#slide3:not(:checked) ~ #slides .slide_3::after,
+#slide4:not(:checked) ~ #slides .slide_4::after {
+    opacity: 0.5;
+}
+
+/* Overlay mais forte no slide ativo */
+#slide1:checked ~ #slides .slide_1::after,
+#slide2:checked ~ #slides .slide_2::after,
+#slide3:checked ~ #slides .slide_3::after,
+#slide4:checked ~ #slides .slide_4::after {
+    opacity: 1;
+}
+
+/* Bullets */
+#bullets {
+    margin-top: 12px;
+    text-align: center;
+}
+
+#bullets label {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    border-radius: 50%;
+    background: #ccc;
+    margin: 0 6px;
+    transition: background-color 0.4s ease, transform 0.3s ease;
+}
+
+#slide1:checked ~ #bullets label:nth-child(1),
+#slide2:checked ~ #bullets label:nth-child(2),
+#slide3:checked ~ #bullets label:nth-child(3),
+#slide4:checked ~ #bullets label:nth-child(4) {
+    background: #444;
+    transform: scale(1.1);
+}

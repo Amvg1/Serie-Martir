@@ -2,16 +2,16 @@ const headerTemplate = document.createElement('template');
 
 headerTemplate.innerHTML = `
     <style>
-        .header {
-    background: #f2f5f7;
-    display: flex;
-    align-items: center;
-    padding: 0 3rem;
-    border-bottom: .1rem solid rgba(117, 117, 117, 0.3);
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 1000;
-    line-height: 4.5rem;
+    .header {
+        background: #f2f5f7;
+        display: flex;
+        align-items: center;
+        padding: 0 3rem;
+        border-bottom: .1rem solid rgba(117, 117, 117, 0.3);
+        position: fixed;
+        top: 0; left: 0; right: 0;
+        z-index: 1000;
+        line-height: 4.5rem;
     }
     .header .navbar {
         display: flex;
@@ -82,7 +82,7 @@ headerTemplate.innerHTML = `
                 <li><a href="#">Inscrições Adultos</a></li>
                 <li><a href="#">Inscrições Desbravadores</a></li>
                 <li><a href="#">Contribuições</a></li>
-                <li><a href="#">Galeria</a></li>
+                <li><a href="galeria.html">Galeria</a></li>
             </ul>
         </nav>
     </header>
