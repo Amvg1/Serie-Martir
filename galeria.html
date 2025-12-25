@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Galeria</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="./CSS/galeria.css">
+        <link rel="stylesheet" href="./CSS/style.css">
+        <script src="./components/header.js" type="text/javascript" defer></script>
+        <script src="./components/footer.js" type="text/javascript" defer></script>
+    </head>
+    <body>
+    <header-component></header-component>
+
+    <section class="introducao">
+        <div class="container">
+            <div class="box">
+                <div class="content">
+                    <p>
+                        Nossos alunos experimentam romperes em suas vidas, 
+                        sendo transformados de dentro para fora, evidenciando 
+                        o impacto dos céus sobre suas vidas - os mesmos jamais! 
+                        Confira alguns testemunhos, registros e formaturas.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="carousel-card">
+        <div class="carousel-title">Testemunhos</div>
+
+        <div id="slider">
+            <input type="radio" name="slider" id="slide1" checked>
+            <input type="radio" name="slider" id="slide2">
+            <input type="radio" name="slider" id="slide3">
+            <input type="radio" name="slider" id="slide4">
+
+            <div id="slides">
+                <div id="overflow">
+                    <div class="inner">
+                        <!-- clone do último -->
+                        <div class="slide slide_4" data-title="Título do Slide 4"></div>
+
+                        <div class="slide slide_1" data-title="Título do Slide 1"></div>
+                        <div class="slide slide_2" data-title="Título do Slide 2"></div>
+                        <div class="slide slide_3" data-title="Título do Slide 3"></div>
+                        <div class="slide slide_4" data-title="Título do Slide 4"></div>
+
+                        <!-- clone do primeiro -->
+                        <div class="slide slide_1" data-title="Título do Slide 1"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="bullets">
+                <label for="slide1"></label>
+                <label for="slide2"></label>
+                <label for="slide3"></label>
+                <label for="slide4"></label>
+            </div>
+        </div>
+    </div>
+
+    <footer-component></footer-component>
+    <script src="./JS/script.js"></script>    
+    </body>
+</html>
