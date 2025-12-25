@@ -12,7 +12,6 @@
 
 html {
     font-size: 60%;
-    overflow: scroll;
     scroll-padding-top: 9rem;
     scroll-behavior: smooth;
 }
@@ -29,6 +28,9 @@ html::-webkit-scrollbar-thumb {
 
 body {
     background: #fff;
+}
+body.no-scroll {
+    overflow: hidden;
 }
 section {
     padding: 2rem;
@@ -79,7 +81,7 @@ section {
 }
 .header .navbar ul li {
     width: 100%;
-    margin: 50px 0;
+    margin: 40px 0;
 }
 .header .navbar ul li a {
     font-size: 23px;

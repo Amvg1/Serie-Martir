@@ -3,8 +3,10 @@ var menuBtn = document.querySelector('.menu-btn i');
 function menuShow() {
     if (ul.classList.contains('open')) {
         ul.classList.remove('open');
+        document.body.classList.remove('no-scroll'); // libera scroll
     } else {
         ul.classList.add('open');
+        document.body.classList.add('no-scroll'); // bloqueia scroll
     }
 }
 
