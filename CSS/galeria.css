@@ -1,10 +1,11 @@
 .introducao {
     padding-top: 9rem;
+    padding-bottom: 0;
 }
 
 .carousel-card {
-    width: 92%;
-    margin: 20px auto;
+    width: 100%;
+    margin: 0px auto;
     padding: 16px;
     border-radius: 20px;
     background: rgba(255, 255, 255, 0.15);
@@ -50,7 +51,7 @@
 }
 
 .slides .inner {
-    width: calc(100% * 6); /* 6 slides */
+    width: calc(100% * 4); /* 6 slides */
     height: 300px;
     display: flex;
     transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
@@ -59,7 +60,7 @@
 
 /* Slide individual */
 .slides .slide {
-    width: calc(100% / 6);
+    width: calc(100.09% / 4);
     height: 100%;
     background-size: cover;
     background-position: center;
