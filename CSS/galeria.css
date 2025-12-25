@@ -1,5 +1,9 @@
+.introducao {
+    padding-top: 9rem;
+}
+
 .carousel-card {
-    width: 92%;
+    width: 91.94%;
     margin: 20px auto;
     padding: 16px;
     border-radius: 20px;
@@ -7,6 +11,7 @@
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    margin-top: 0;
 }
 
 .carousel-title {
@@ -52,12 +57,6 @@
     will-change: transform;
 }
 
-/* Movimento */
-#slide1:checked ~ #slides .inner { margin-left: 0; }
-#slide2:checked ~ #slides .inner { margin-left: -100%; }
-#slide3:checked ~ #slides .inner { margin-left: -200%; }
-#slide4:checked ~ #slides .inner { margin-left: -300%; }
-
 /* Slide individual */
 #slides .slide {
     width: calc(100% / 6);
@@ -93,10 +92,10 @@
 }
 
 /* Imagens */
-.slide_1 { background-image: url(./IMG/2021.JPG); }
-.slide_2 { background-image: url(./IMG/2022.jpg); }
-.slide_3 { background-image: url(./IMG/2023.jpg); }
-.slide_4 { background-image: url(./IMG/2025.jpg); }
+.slide_1 { background-image: url(../IMG/2021.JPG); }
+.slide_2 { background-image: url(../IMG/2022.jpg); }
+.slide_3 { background-image: url(../IMG/2023.jpg); }
+.slide_4 { background-image: url(../IMG/2025.jpg); }
 
 /* Overlay mais fraco nos slides inativos */
 #slide1:not(:checked) ~ #slides .slide_1::after,

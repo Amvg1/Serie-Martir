@@ -1,18 +1,33 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Galeria</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-        <link rel="stylesheet" href="./CSS/galeria.css">
-        <link rel="stylesheet" href="./CSS/style.css">
-        <script src="./components/header.js" type="text/javascript" defer></script>
-        <script src="./components/footer.js" type="text/javascript" defer></script>
-    </head>
-    <body>
-    <header-component></header-component>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="./CSS/galeria.css">
+    <link rel="stylesheet" href="./CSS/style.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <img src="IMG/logo.png" alt="logo">
+            </a>
+            <div class="menu-btn">
+                <i class="fas fa-ellipsis-v" onclick="menuShow()"></i>
+            </div>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="#">Inscrições Adultos</a></li>
+                <li><a href="#">Inscrições Desbravadores</a></li>
+                <li><a href="#">Contribuições</a></li>
+                <li><a href="galeria.html">Galeria</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <section class="introducao">
         <div class="container">
@@ -30,7 +45,7 @@
     </section>
 
     <div class="carousel-card">
-        <div class="carousel-title">Testemunhos</div>
+        <div class="carousel-title">Título do Slide 1</div>
 
         <div id="slider">
             <input type="radio" name="slider" id="slide1" checked>
@@ -64,7 +79,21 @@
         </div>
     </div>
 
-    <footer-component></footer-component>
+    <footer class="footer">
+        <div class="icon">
+            <a class="fab fa-whatsapp"></a>
+            <a class="fab fa-telegram"></a>
+            <a class="fab fa-instagram"></a>
+        </div>
+        <div class="text">
+            <p>Siga-nos nas redes sociais
+                <br>e para mais informações 
+                <br>entre em contato conosco.
+            </p>
+        </div>
+        <div class="copyright">© 2025 - Todos os direitos reservados - <span>Série Mártir</span></div>
+    </footer>
+
     <script src="./JS/script.js"></script>    
-    </body>
+</body>
 </html>

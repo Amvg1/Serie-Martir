@@ -44,6 +44,15 @@ function syncUIWithTiming(targetIndex) {
     }, 150); // pequeno atraso perceptível
 }
 
+function forceSingleActiveBullet() {
+    const realIndex = (index - 1 + 4) % 4;
+
+    bullets.forEach((b, i) => {
+        b.style.transition = "transform 0.3s ease, background-color 0.3s ease";
+        b.style.transform = i === realIndex ? "scale(1.2)" : "scale(1)";
+        b.style.background = i === realIndex ? "#444" : "#ccc";
+    });
+}
 
 /* ---------- movimento ---------- */
 function moveToIndex(animate = true) {
@@ -99,11 +108,14 @@ slider.addEventListener("touchend", () => {
         moveToIndex(true);
     } 
     else {
-        /* volta suavemente para o slide atual, sem UI */
+        /* volta suavemente para o slide atual */
         inner.style.transition =
             "transform 0.3s cubic-bezier(0.22, 1, 0.36, 1)";
         inner.style.transform =
             `translateX(${-index * slideWidth}px)`;
+
+        /* 🔹 garante que apenas 1 bullet fique ativo */
+        forceSingleActiveBullet();
     }
 });
 
@@ -125,6 +137,12 @@ inner.addEventListener("transitionend", () => {
 
     if (jumped) {
         moveToIndex(false);
+
+        /* 🔹 CORREÇÃO ESSENCIAL */
+        const radios = document.querySelectorAll('#slider input[type="radio"]');
+        radios[index - 1].checked = true;
+
+        syncUIWithTiming(index);
     }
 
     isAnimating = false;
@@ -162,3 +180,18 @@ function updateBulletsProgress(delta) {
         }
     });
 }
+
+/* ---------- clique nos bullets ---------- */
+bullets.forEach((bullet, i) => {
+    bullet.addEventListener("click", () => {
+        index = i + 1;
+
+        /* força atualização visual do radio */
+        const radios = document.querySelectorAll('#slider input[type="radio"]');
+        radios.forEach(r => r.checked = false);
+        radios[i].checked = true;
+
+        syncUIWithTiming(index);
+        moveToIndex(true);
+    });
+});
