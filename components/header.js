@@ -69,22 +69,22 @@ headerTemplate.innerHTML = `
     }
     </style>
     <header class="header">
-        <nav class="navbar">
-            <a href="index.html" class="logo">
-                <img src="IMG/logo.png" alt="logo">
-            </a>
-            <div class="menu-btn">
-                <i class="fas fa-ellipsis-v" onclick="menuShow()"></i>
-            </div>
-            <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="sobre.html">Sobre</a></li>
-                <li><a href="#">Inscrições Adultos</a></li>
-                <li><a href="#">Inscrições Desbravadores</a></li>
-                <li><a href="#">Contribuições</a></li>
-                <li><a href="galeria.html">Galeria</a></li>
-            </ul>
-        </nav>
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <img src="IMG/logo.png" alt="logo">
+                </a>
+                <div class="menu-btn">
+                    <i class="fas fa-ellipsis-v" onclick="menuShow()"></i>
+                </div>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="inscricao.html">Inscrições Adultos</a></li>
+                    <li><a href="#">Inscrições Desbravadores</a></li>
+                    <li><a href="#">Contribuições</a></li>
+                    <li><a href="galeria.html">Galeria</a></li>
+                </ul>
+            </nav>
     </header>
 `;
 
