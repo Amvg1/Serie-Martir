@@ -1,0 +1,33 @@
+/* Banner e versículo */
+.inicio {
+    background: url(../IMG/banner.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: 2rem;
+    margin-top: 8.9rem;
+    margin-bottom: 0;
+    padding-bottom: 5rem;
+    border-radius: 10px;
+}
+.inicio .content {
+    text-align: right;
+}
+.inicio .content h1 {
+    font-size: 2rem;
+    color: #282828;
+    padding-right: 1rem;
+}
+hr {
+    border: none;
+    height: .3rem;
+    width: 10.8rem;
+    background-color: #820101;
+    margin-left: 18rem;
+    margin-top: 1rem;
+    margin-bottom: .5rem;
+}
+.inicio .content p {
+    font-size: 1.4rem;
+    color: #282828;
+    padding-right: 1rem;
+}
