@@ -31,3 +31,310 @@ hr {
     color: #282828;
     padding-right: 1rem;
 }
+
+/* estilo de grades do Carrossel */
+/*#carousel {
+    width: 100% !important; 
+    margin-left: 0 !important;
+    max-width: 900px; 
+    margin: 0 auto;
+}
+
+
+.carousel-inner > .item {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    padding: 0 50px;
+}
+
+
+.item .col-md-8, .item .col-md-4 {
+    float: none !important;
+    display: block;
+}
+
+
+.item img {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #000; 
+}
+
+
+.item span {
+    display: block;
+    padding-left: 20px;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: left;
+}
+
+
+.carousel-control {
+    width: 5%;
+    background-image: none !important; 
+    color: #000 !important; 
+}
+
+
+@media (max-width: 768px) {
+    .carousel-inner > .item {
+        flex-direction: column;
+        padding: 0 30px;
+    }
+    .item span {
+        padding-left: 0;
+        padding-top: 15px;
+        text-align: center;
+    }
+}*/
+
+/* Teste CSS para carrossel 1 */
+
+/*.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(1) grayscale(100) brightness(0); 
+    width: 3rem;
+    height: 3rem;
+}
+
+
+.custom-img {
+    border: 3px solid #000;
+    max-width: 350px; 
+    width: 100%;
+    height: auto;
+}
+
+
+.col-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 500px;
+}
+
+
+.carousel-item {
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+
+@media (max-width: 768px) {
+    .col-text {
+        text-align: center;
+        padding-left: 0 !important;
+    }
+}*/
+
+/* Teste para carrossel 2 */
+/* --- CONFIGURAÇÃO BASE --- */
+.carrossel-container {
+    max-width: 1000px;
+    margin: 20px auto;
+    font-family: sans-serif;
+    padding: 0 15px;
+}
+
+.titulo-noticias {
+    margin-bottom: 20px;
+}
+
+.carrossel-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* --- LOGICA DO CARROSSEL (SCROLL SNAP) --- */
+.slides-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+}
+
+/* Esconde a barra de rolagem */
+.slides-container::-webkit-scrollbar {
+    display: none;
+}
+
+.slide {
+    flex: 0 0 100%; /* Cada slide ocupa 100% da largura */
+    scroll-snap-align: start;
+}
+
+/* --- MOBILE FIRST (CONTEÚDO) --- */
+.slide-content {
+    display: flex;
+    flex-direction: column; /* No celular: um embaixo do outro */
+    align-items: center;
+    padding: 20px 40px;
+    text-align: center;
+}
+
+.imagem-box img {
+    max-width: 100%;
+    height: auto;
+    border: 3px solid #000; /* Borda da sua referência */
+    margin-bottom: 15px;
+}
+
+.texto-box p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #333;
+}
+
+/* --- SETAS DE INTERAÇÃO --- */
+.seta {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    text-decoration: none;
+    color: #000;
+    z-index: 10;
+    padding: 10px;
+    transition: 0.3s;
+}
+
+.seta-esq { left: 0; }
+.seta-dir { right: 0; }
+
+.seta:hover { opacity: 0.5; }
+
+/* --- DESKTOP (LADO A LADO) --- */
+@media (min-width: 768px) {
+    .slide-content {
+        flex-direction: row; /* Alinha horizontalmente */
+        text-align: left;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .imagem-box {
+        flex: 0 0 40%;
+    }
+
+    .texto-box {
+        flex: 1;
+        max-width: 500px;
+    }
+
+    .imagem-box img {
+        margin-bottom: 0;
+    }
+}
+
+/* --- SEU CÓDIGO BASE INTEGRADO --- */
+* {
+    font-family: 'Roboto', sans-serif;
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    outline: none; border: none;
+    text-decoration: none;
+    text-transform: none;
+    transition: .2s linear;
+}
+
+html {
+    font-size: 60%; 
+    scroll-padding-top: 9rem;
+    scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar { width: .8rem; }
+html::-webkit-scrollbar-track { background: transparent; }
+html::-webkit-scrollbar-thumb {
+    background: #333; 
+    border-radius: 5rem;
+}
+
+body { background: #fff; }
+section { padding: 2rem; }
+
+/* --- ESTILO DO CARROSSEL --- */
+.heading {
+    font-size: 3rem;
+    padding-bottom: 2rem;
+    color: #333;
+}
+
+.carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+.carousel-wrapper {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    width: 100%;
+}
+
+/* Esconder scrollbar do carrossel */
+.carousel-wrapper::-webkit-scrollbar { display: none; }
+
+.carousel-item {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    padding: 1rem;
+}
+
+/* --- CONTEÚDO (MOBILE FIRST) --- */
+.content {
+    display: flex;
+    flex-direction: column; /* Empilhado no mobile */
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem 4rem;
+}
+
+.box-img img {
+    width: 100%;
+    max-width: 40rem;
+    border: .3rem solid #000; /* Borda da sua referência */
+}
+
+.box-text p {
+    font-size: 1.8rem;
+    line-height: 1.6;
+    color: #444;
+}
+
+/* --- SETAS --- */
+.seta {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 4rem;
+    color: #000;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.seta-esq { left: 0; }
+.seta-dir { right: 1rem; }
+
+.seta:hover { scale: 1.2; }
+
+/* --- DESKTOP (LADO A LADO) --- */
+@media (min-width: 768px) {
+    .content {
+        flex-direction: row; 
+        justify-content: center;
+        text-align: left;
+    }
+
+    .box-text {
+        max-width: 50rem;
+    }
+}
