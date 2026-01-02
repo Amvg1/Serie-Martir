@@ -217,9 +217,9 @@ headerTemplate.innerHTML = `
                 <ul>
                     <li><a href="index.html">Início</a></li>
                     <li><a href="sobre.html">Sobre</a></li>
-                    <li><a href="inscricao.html">Inscrições Adultos</a></li>
-                    <li><a href="#">Inscrições Desbravadores</a></li>
-                    <li><a href="#">Contribuições</a></li>
+                    <li><a href="insc-adultos.html">Inscrições Adultos</a></li>
+                    <li><a href="insc-infantil.html">Inscrições Desbravadores</a></li>
+                    <li><a href="contribuicoes.html">Contribuições</a></li>
                     <li><a href="galeria.html">Galeria</a></li>
                 </ul>
             </nav>
