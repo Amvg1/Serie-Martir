@@ -1,6 +1,7 @@
 const headerTemplate = document.createElement('template');
 
 headerTemplate.innerHTML = `
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
     .header {
         background: #f2f5f7;
@@ -74,7 +75,7 @@ headerTemplate.innerHTML = `
                     <img src="IMG/logo.png" alt="logo">
                 </a>
                 <div class="menu-btn">
-                    <i class="fas fa-ellipsis-v" onclick="menuShow()"></i>
+                    <i class="fas fa-ellipsis-v"></i>
                 </div>
                 <ul>
                     <li><a href="index.html">Início</a></li>
@@ -88,7 +89,7 @@ headerTemplate.innerHTML = `
     </header>
 `;
 
-class Header extends HTMLElement{
+/*class Header extends HTMLElement{
     constructor(){
         super();
     }
@@ -96,6 +97,32 @@ class Header extends HTMLElement{
     connectedCallback(){
         const shadowRoot = this.attachShadow({mode:'closed'});
         shadowRoot.appendChild(headerTemplate.content);
+    }
+}
+
+customElements.define('header-component', Header);*/
+
+class Header extends HTMLElement {
+    constructor() {
+        super();
+        // Usamos 'open' para facilitar a depuração, mas o segredo está no encapsulamento
+        this.attachShadow({ mode: 'open' });
+    }
+
+    connectedCallback() {
+        // 1. Clonar o conteúdo do template (importNode garante que funcione em múltiplas instâncias)
+        this.shadowRoot.appendChild(headerTemplate.content.cloneNode(true));
+
+        // 2. Selecionar os elementos de dentro do Shadow DOM
+        const btn = this.shadowRoot.querySelector('.menu-btn i');
+        const menu = this.shadowRoot.querySelector('ul');
+
+        // 3. Adicionar o evento diretamente aqui (Substitui o onclick do HTML)
+        if (btn && menu) {
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('open');
+            });
+        }
     }
 }
 
