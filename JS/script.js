@@ -1,3 +1,4 @@
+// menu
 var ul = document.querySelector('nav ul');
 var menuBtn = document.querySelector('.menu-btn i');
 function menuShow() {
@@ -10,6 +11,7 @@ function menuShow() {
     }
 }
 
+// carrossel
 document.querySelectorAll(".carousel-card").forEach(card => {
 
     let didSlideChange = false;
