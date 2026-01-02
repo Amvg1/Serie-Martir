@@ -10,7 +10,25 @@
         <link rel="stylesheet" href="./CSS/style.css">
     </head>
     <body>
-    <header-component></header-component>
+    <!-- <header-component></header-component> -->
+    <header class="header">
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <img src="IMG/logo.png" alt="logo">
+            </a>
+            <div class="menu-btn">
+                <i class="fas fa-ellipsis-v" onclick="menuShow()"></i>
+            </div>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="sobre.html" class="active">Sobre</a></li>
+                <li><a href="insc-adultos.html">Inscrições Adultos</a></li>
+                <li><a href="insc-infantil.html">Inscrições Desbravadores</a></li>
+                <li><a href="contribuicoes.html">Contribuições</a></li>
+                <li><a href="galeria.html">Galeria</a></li>
+            </ul>
+        </nav>
+    </header>
         <section class="sobre">
             <div class="container">
                 <div class="box">
