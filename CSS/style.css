@@ -279,9 +279,16 @@ hr {
         margin: 1.5rem 0 1rem 5.2rem;
     }
 
+    .container {
+        padding: 4rem 10%;        
+    }
+    .container .box .content {
+        padding: 0;
+    }
     .container .box .content p {
         font-size: 2rem;
         text-align: justify;
+        line-height: 1.8;
     }
 
     .footer {
