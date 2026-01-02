@@ -124,3 +124,49 @@ document.querySelectorAll(".carousel-card").forEach(card => {
     syncUIWithTiming(index);
     moveToIndex(true);
 });
+
+/* Lógica para carrossel (teste) */
+
+document.addEventListener('DOMContentLoaded', () => {
+    const dadosGaleria = [
+        { id: '1YEIazrOnmgm6hD-9uHCZE1x2DSOR-htU', titulo: 'Testemunho 1' },
+        { id: '1YU7pc6K1Wc6l01OEVfi1p0YzlsUFVtva', titulo: 'Testemunho 2' },
+        { id: '1t4FzbmS3mziOXwizn99shYt2L7SoSpy1', titulo: 'Testemunho 3' },
+        { id: '1tvIh4RZTzTXSEL2bmTGGquWdGAvul_vo', titulo: 'Testemunho 4' }
+    ];
+
+    const sliderInner = document.getElementById('slider-inner');
+    const titleElement = document.getElementById('carousel-title');
+
+    // Limpa o conteúdo antes de inserir (evita duplicatas)
+    if (sliderInner) sliderInner.innerHTML = '';
+
+    // 2. CRIAR OS SLIDES
+    dadosGaleria.forEach((item) => {
+        const slide = document.createElement('div');
+        slide.className = 'slide';
+        
+        // NOVO FORMATO DE LINK (Mais estável e em alta resolução)
+        // O parâmetro =w1000 garante que a imagem venha com boa qualidade
+        const urlImagem = `https://lh3.googleusercontent.com/d/${item.id}=w1000`;
+        
+        slide.style.backgroundImage = `url('${urlImagem}')`;
+        sliderInner.appendChild(slide);
+    });
+
+    // 3. LOGICA DOS INPUTS
+    const inputs = document.querySelectorAll('input[name="slider1"]');
+    if (titleElement && dadosGaleria[0]) {
+        titleElement.innerText = dadosGaleria[0].titulo;
+    }
+
+    inputs.forEach((radio, index) => {
+        radio.addEventListener('change', () => {
+            if (titleElement) titleElement.innerText = dadosGaleria[index].titulo;
+            
+            // O movimento deve ser baseado na largura do slide individual
+            const deslocamento = index * -25; 
+            sliderInner.style.transform = `translateX(${deslocamento}%)`;
+        });
+    });
+});

@@ -93,10 +93,10 @@
 }
 
 /* Imagens */
-.slide_1 { background-image: url(../IMG/2021.JPG); }
+/*.slide_1 { background-image: url(../IMG/2021.JPG); }
 .slide_2 { background-image: url(../IMG/2022.jpg); }
 .slide_3 { background-image: url(../IMG/2023.jpg); }
-.slide_4 { background-image: url(../IMG/2025.jpg); }
+.slide_4 { background-image: url(../IMG/2025.jpg); }*/
 
 /* Bullets */
 .bullets {
@@ -112,4 +112,21 @@
     background: #ccc;
     margin: 0 6px;
     transition: background-color 0.4s ease, transform 0.3s ease;
+}
+
+/* logica para slides */
+
+/* 4. Lógica de movimento (importante para funcionar com os Radio Buttons) */
+#s1:checked ~ .slides .inner { transform: translateX(0); }
+#s2:checked ~ .slides .inner { transform: translateX(-25%); }
+#s3:checked ~ .slides .inner { transform: translateX(-50%); }
+#s4:checked ~ .slides .inner { transform: translateX(-75%); }
+
+/* 5. Estilo dos Bullets ativos (para dar feedback visual) */
+#s1:checked ~ .bullets label:nth-child(1),
+#s2:checked ~ .bullets label:nth-child(2),
+#s3:checked ~ .bullets label:nth-child(3),
+#s4:checked ~ .bullets label:nth-child(4) {
+    background: #820101; /* Cor de destaque para o ponto ativo */
+    transform: scale(1.2);
 }

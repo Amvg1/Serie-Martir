@@ -45,18 +45,18 @@
     </section>
 
     <section class="testemunhos">
-        <!-- CARROSSEL 1 -->
+        <!-- Carrossel de teste que utiliza JavaScript com Google Drive para slides de fotos-->
         <div class="carousel-card">
-            <div class="carousel-title">Título do Slide 1</div>
+            <div class="carousel-title" id="carousel-header">Título do Slide 1</div>
             <div class="slider">
-                <input type="radio" name="slider1" checked>
-                <input type="radio" name="slider1">
-                <input type="radio" name="slider1">
-                <input type="radio" name="slider1">
+                <input type="radio" name="slider1" id="s1" checked>
+                <input type="radio" name="slider1" id="s2">
+                <input type="radio" name="slider1" id="s3">
+                <input type="radio" name="slider1" id="s4">
 
                 <div class="slides">
                     <div class="overflow">
-                        <div class="inner">
+                        <div class="inner" id="slider-inner">
                             <div class="slide slide_4" data-title="Título do Slide 4"></div>
                             <div class="slide slide_1" data-title="Título do Slide 1"></div>
                             <div class="slide slide_2" data-title="Título do Slide 2"></div>
@@ -68,10 +68,10 @@
                 </div>
 
                 <div class="bullets">
-                    <label></label>
-                    <label></label>
-                    <label></label>
-                    <label></label>
+                    <label for="s1"></label>
+                    <label for="s2"></label>
+                    <label for="s3"></label>
+                    <label for="s4"></label>
                 </div>
             </div>
         </div>
