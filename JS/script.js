@@ -129,63 +129,67 @@ document.querySelectorAll(".carousel-card").forEach(card => {
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // 1. Dados dos Carrosséis (Mantenha a ordem desejada aqui)
-    const galeriaTestemunhos = [
+    // 1. DADOS DOS CARROSSEIS
+    const galeria1 = [
         { id: '1YEIazrOnmgm6hD-9uHCZE1x2DSOR-htU', titulo: 'Testemunho 1' },
         { id: '1YU7pc6K1Wc6l01OEVfi1p0YzlsUFVtva', titulo: 'Testemunho 2' },
         { id: '1t4FzbmS3mziOXwizn99shYt2L7SoSpy1', titulo: 'Testemunho 3' },
         { id: '196AAhq_P_BC0zv-69iaR8EnBw4chtluw', titulo: 'Testemunho 4' }
     ];
 
-    // Exemplo de segunda galeria (Edite os IDs quando tiver)
-    const galeriaEventos = [
-        { id: 'ID_FOTO_1', titulo: 'Evento 1' },
-        { id: 'ID_FOTO_2', titulo: 'Evento 2' },
-        { id: 'ID_FOTO_3', titulo: 'Evento 3' },
-        { id: 'ID_FOTO_4', titulo: 'Evento 4' }
+    const galeria2 = [
+        { id: '1YEIazrOnmgm6hD-9uHCZE1x2DSOR-htU', titulo: 'Registro 1' }, // Substitua pelos IDs reais
+        { id: '1YU7pc6K1Wc6l01OEVfi1p0YzlsUFVtva', titulo: 'Registro 2' },
+        { id: '1t4FzbmS3mziOXwizn99shYt2L7SoSpy1', titulo: 'Registro 3' },
+        { id: '196AAhq_P_BC0zv-69iaR8EnBw4chtluw', titulo: 'Registro 4' }
     ];
 
-    // 2. Função de Configuração
-    function configurarCarrossel(dados, innerId, headerId, inputName) {
+    // 2. FUNÇÃO REUTILIZÁVEL MELHORADA
+    function configurarCarrossel(dados, innerId, titleId, inputName) {
         const sliderInner = document.getElementById(innerId);
-        const headerTitle = document.getElementById(headerId);
+        const titleElement = document.getElementById(titleId);
         const inputs = document.querySelectorAll(`input[name="${inputName}"]`);
 
-        if (!sliderInner) return;
+        if (!sliderInner) {
+            console.error(`Erro: Elemento #${innerId} não encontrado!`);
+            return;
+        }
 
-        // LIMPEZA: Remove as divs estáticas do HTML para não duplicar ou bugar a ordem
+        // Limpa o container
         sliderInner.innerHTML = '';
 
-        // INJEÇÃO: Cria as fotos na ordem do Array
+        // Cria os slides
         dados.forEach((item, index) => {
-            const slideDiv = document.createElement('div');
-            // Mantém suas classes originais para o CSS funcionar
-            slideDiv.className = `slide slide_${index + 1}`; 
+            const slide = document.createElement('div');
+            // IMPORTANTE: Adicionamos a classe 'slide' que tem o seu CSS
+            slide.classList.add('slide');
+            slide.classList.add(`slide_${index + 1}`);
             
-            const imgUrl = `https://lh3.googleusercontent.com/d/${item.id}=w1000`;
+            // NOVO LINK: Testado e mais estável
+            const urlImagem = `https://lh3.googleusercontent.com/u/0/d/${item.id}`;
             
-            slideDiv.style.backgroundImage = `url('${imgUrl}')`;
-            slideDiv.setAttribute('data-title', item.titulo);
+            slide.style.backgroundImage = `url('${urlImagem}')`;
+            // Garantimos que o slide apareça
+            slide.style.width = "25%"; 
+            slide.style.height = "100%";
             
-            sliderInner.appendChild(slideDiv);
+            sliderInner.appendChild(slide);
         });
 
-        // TÍTULO INICIAL: Pega o título da primeira foto da lista
-        if (headerTitle) headerTitle.innerText = dados[0].titulo;
+        // Título Inicial
+        if (titleElement) titleElement.innerText = dados[0].titulo;
 
-        // CONTROLE: Sincroniza o clique com a mudança de título e posição
-        inputs.forEach((input, index) => {
-            input.addEventListener('change', () => {
-                if (headerTitle) headerTitle.innerText = dados[index].titulo;
-                
-                // Move o container (25% para 4 slides)
+        // Movimento
+        inputs.forEach((radio, index) => {
+            radio.addEventListener('change', () => {
+                if (titleElement) titleElement.innerText = dados[index].titulo;
                 const deslocamento = index * -25;
                 sliderInner.style.transform = `translateX(${deslocamento}%)`;
             });
         });
     }
 
-    // 3. Inicialização (Repita para cada seção da sua página)
-    configurarCarrossel(galeriaTestemunhos, 'slider-inner', 'carousel-header', 'slider1');
-    // configurarCarrossel(galeriaEventos, 'slider-inner-2', 'carousel-header-2', 'slider2');
+    // 3. INICIALIZAÇÃO (Confira se os IDs batem com o seu HTML!)
+    configurarCarrossel(galeria1, 'slider-inner', 'carousel-header', 'slider1');
+    configurarCarrossel(galeria2, 'slide-inner2', 'title-registros', 'slider2');
 });
