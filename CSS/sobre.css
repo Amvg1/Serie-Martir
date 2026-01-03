@@ -100,15 +100,15 @@ h2 {
         flex-direction: column;
     }
 
-    .local-imagem img,
-    .local-mapa iframe {
+    .container .box .content .local-imagem img,
+    .container .box .content .local-mapa iframe {
+        margin: 0;
         flex: 1;
         width: 100%;
         height: 100%;
         border-radius: 15px;
         object-fit: cover;
         border: 0;
-        margin-top: 0;
     }
 
     .local-imagem p,
