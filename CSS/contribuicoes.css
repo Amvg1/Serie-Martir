@@ -31,3 +31,30 @@ hr {
     color: #282828;
     padding-right: 1rem;
 }
+
+@media (min-width: 768px) {
+    
+    .inicio {
+        max-width: calc(100% - 14%);
+        min-height: calc(100dvh - 30rem);
+        margin: 10.8rem auto 0;
+        padding: 4rem;
+        border-radius: 10px;
+    }
+
+    .inicio .content {
+        text-align: right;
+    }
+
+    .inicio .content h1 {
+        font-size: 6rem;
+    }
+
+    .inicio .content p {
+        font-size: 4rem;
+    }
+
+    .inicio hr {
+        margin: 1rem 0 .5rem auto;
+    }
+}

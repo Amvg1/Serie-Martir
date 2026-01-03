@@ -255,7 +255,7 @@ hr {
 
     .inicio {
         min-height: calc(100dvh - 10rem);
-        margin-top: 10.4rem;
+        margin-top: 10.8rem;
         display: flex;
         align-items: center;
         justify-content: flex-end;
