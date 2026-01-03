@@ -296,6 +296,20 @@ hr {
         line-height: 1.8;
     }
 
+    .container .btn {
+        font-size: 1.8rem;
+        height: 35px;
+        line-height: 35px;
+        letter-spacing: .1rem;
+        border: .2rem solid #820101;
+        border-radius: 10px;
+        transition: 0.3s ease;
+    }
+    .container .btn:hover {
+        background: #820101;
+        color: #fff;
+    }
+
     .sobre, .introducao {
         margin-top: 1.8rem;
     }

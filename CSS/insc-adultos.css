@@ -1,5 +1,20 @@
-.content li{
-    text-align: left;
-    font-family: 'Roboto', sans-serif;
-    font-size: 1.4em;
+.container .box .content ul {
+    list-style: none;
+}
+.container .box .content ul li {
+    font-size: 14px;
+    text-align: justify;
+}
+
+@media (min-width: 768px) {
+
+    .pacote .container .box .content ul {
+        text-align: left;
+    }
+    .pacote .container .box .content ul li,
+    .funcionamento .container .box .content p {
+        font-size: 2rem;
+        text-align: left;
+        line-height: 1.8;
+    }
 }
