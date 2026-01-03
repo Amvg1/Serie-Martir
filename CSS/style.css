@@ -170,6 +170,11 @@ hr {
     text-decoration: none;
 }
 
+.sobre, .introducao {
+    padding-top: 9rem;
+    padding-bottom: 0;
+}
+
 /* Rodapé */
 .footer {
     background: #282828;
@@ -255,7 +260,7 @@ hr {
 
     .inicio {
         min-height: calc(100dvh - 10rem);
-        margin-top: 10.8rem;
+        margin-top: 10.7rem;
         display: flex;
         align-items: center;
         justify-content: flex-end;
@@ -289,6 +294,10 @@ hr {
         font-size: 2rem;
         text-align: justify;
         line-height: 1.8;
+    }
+
+    .sobre, .introducao {
+        margin-top: 1.8rem;
     }
 
     .footer {

@@ -37,7 +37,7 @@ hr {
     .inicio {
         max-width: calc(100% - 14%);
         min-height: calc(100dvh - 30rem);
-        margin: 10.8rem auto 0;
+        margin: 10.7rem auto 0;
         padding: 4rem;
         border-radius: 10px;
     }
