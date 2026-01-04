@@ -109,7 +109,7 @@ section {
     background-size: cover;
     background-position: center;
     margin-top: 8.9rem;
-    padding-bottom: 5rem 1rem;
+    padding: 5rem 1rem;
 }
 .inicio .content {
     text-align: right;
@@ -169,8 +169,7 @@ hr {
     cursor: pointer;
     text-decoration: none;
 }
-
-.sobre, .introducao {
+.introducao {
     padding-top: 9rem;
     padding-bottom: 0;
 }
