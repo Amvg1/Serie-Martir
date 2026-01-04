@@ -17,23 +17,4 @@
         text-align: left;
         line-height: 1.8;
     }
-}.container .box .content ul {
-    list-style: none;
-}
-.container .box .content ul li {
-    font-size: 14px;
-    text-align: justify;
-}
-
-@media (min-width: 768px) {
-
-    .pacote .container .box .content ul {
-        text-align: left;
-    }
-    .pacote .container .box .content ul li,
-    .funcionamento .container .box .content p {
-        font-size: 2rem;
-        text-align: left;
-        line-height: 1.8;
-    }
 }
