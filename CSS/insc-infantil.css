@@ -3,3 +3,91 @@
     font-family: 'Roboto', sans-serif;
     font-size: 1.4em;
 }
+
+
+/* Teste design responsivo mobile (360 x 640) */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    background-color: #fff;
+}
+
+.container{
+    padding: 0 20px;
+}
+
+.introducao .pacote .funcionamento .formulario .pagamento{
+    padding: 40px 0;
+}
+
+h1{
+    font-size: 1.6rem;
+    text-align: center;
+    color: #181818;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+p{
+    text-align: justify;
+    font-size: 15px;
+    color: #444;
+}
+
+.footer{
+    background-color: #181818;
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.footer .icon{
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.footer .text p{
+    color: #bbb;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.footer .copyright{
+    margin-top: 30px;
+    font-size: 12px;
+    opacity: 0.5;
+    border-top: 1px solid #333;
+    padding-top: 20px;
+}
+
+@media (min-width: 768px){
+    .container{
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    h1{
+        font-size: 2.5rem;
+    }
+
+    .footer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer .text p{
+        font-size: 16px;
+    }
+}
