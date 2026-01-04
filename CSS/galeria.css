@@ -109,3 +109,125 @@
     transition: background-color 0.4s ease, transform 0.3s ease;
 }
 
+.carousel-arrow {
+    display: none;
+}
+
+@media (min-width: 768px) {
+
+    /* Sections alinhadas ao layout da página */
+    section.testemunhos,
+    section.registros,
+    section.formaturas {
+        padding: 0 7%;
+        padding-top: 4rem;
+    }
+    section.formaturas {
+        padding-bottom: 4rem;
+    }
+
+    /* Caixa externa do carrossel */
+    .carousel-card {
+        width: 100%;
+        padding: 4rem 10%;
+        background: #f2f5f781;
+        border-radius: 15px;
+        box-shadow: none;
+    }
+
+    .carousel-title {
+        font-size: 2.5rem;
+    }
+
+    /* Estrutura do slider */
+    .slider,
+    .overflow {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        position: relative;
+    }
+
+    .slides .inner {
+        height: 560px;
+    }
+
+    .slides .slide {
+        width: calc(100% / 4);
+        border-radius: 0;
+    }
+
+    /* Bullets */
+    .bullets {
+        display: block;
+        margin-top: 2rem;
+    }
+
+    /* Setas */
+    .carousel-arrow {
+        display: flex;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%) translateZ(0);
+        width: 56px;
+        height: 56px;
+        padding: 0;
+        background: rgba(0, 0, 0, 0.6);
+        color: #fff;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 20;
+        user-select: none;
+        transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .carousel-arrow i {
+        font-size: 2.2rem;
+        line-height: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+    .carousel-arrow.left {
+        left: -64px;
+    }
+
+    .carousel-arrow.right {
+        right: -64px;
+    }
+
+    .carousel-arrow.left i {
+        transform: translateX(-2px);
+    }
+
+    .carousel-arrow.right i {
+        transform: translateX(2px);
+    }
+
+    .carousel-arrow:hover {
+        background: #820101;
+    }
+
+    /* animação vai para o ícone */
+    .carousel-arrow i {
+        transition: transform 0.2s ease;
+    }
+
+    .carousel-arrow.left:hover i {
+        transform: translateX(-2px) scale(1.15);
+    }
+
+    .carousel-arrow.right:hover i {
+        transform: translateX(2px) scale(1.15);
+    }
+
+    .carousel-arrow:active i {
+        transform: scale(0.95);
+    }
+
+
+}

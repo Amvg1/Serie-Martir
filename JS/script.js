@@ -121,7 +121,25 @@ document.querySelectorAll(".carousel-card").forEach(card => {
         });
     });
 
+    const leftArrow = card.querySelector(".carousel-arrow.left");
+    const rightArrow = card.querySelector(".carousel-arrow.right");
+
+    if (leftArrow && rightArrow) {
+        leftArrow.addEventListener("click", () => {
+            if (isAnimating) return;
+            index--;
+            syncUIWithTiming(index);
+            moveToIndex(true);
+        });
+
+        rightArrow.addEventListener("click", () => {
+            if (isAnimating) return;
+            index++;
+            syncUIWithTiming(index);
+            moveToIndex(true);
+        });
+    }
+
     syncUIWithTiming(index);
     moveToIndex(true);
 });
-
