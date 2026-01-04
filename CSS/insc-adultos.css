@@ -18,3 +18,101 @@
         line-height: 1.8;
     }
 }
+
+/* Desgin responsivo mobile (360 x 640px)*/
+@media screen and (max-width: 480px){
+    .container{
+        width: 100%;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    .navbar{
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .navbar .logo img{
+        width: 120px;
+    }
+
+    .navbar ul{
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        text-align: center;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+
+    .navbar ul.open{
+        display: flex;
+    }
+
+    .navbar ul li{
+        margin: 15px 0;
+    }
+
+    .menu-btn{
+        display: block;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    section{
+        padding: 40px 0;
+    }
+
+    h1{
+        font-size: 1.8rem;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .content p{
+        font-size: 1rem;
+        line-height: 1.6;
+        text-align: justify;
+    }
+
+    .pacote ul{
+        padding-left: 0;
+    }
+
+    .pacote ul li{
+        list-style: none;
+        margin-bottom: 15px;
+        font-size: 0.95rem;
+    }
+
+    .footer{
+        padding: 30px 20px;
+        text-align: center;
+    }
+
+    .footer .icon{
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .footer .icon a{
+        font-size: 1.5rem;
+    }
+
+    .footer .text p{
+        font-size: 0.9rem;
+    }
+
+    .footer .copyright{
+        margin-top: 20px;
+        font-size: 0.8rem;
+    }
+}
