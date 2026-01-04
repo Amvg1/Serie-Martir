@@ -178,3 +178,7 @@ Correção de isolamento do estilo para o temanho mobile*/
     }
 }
 
+/* Design responsivo desktop (1366 x 768px) 
+A RESPONSIVIDADE SE ADAPTA BEM AO MEDIA QUERY(768px)
+Toda alteração para 1366 x 768px causa desarranjo nos elementos
+*/
