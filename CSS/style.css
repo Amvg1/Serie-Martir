@@ -113,6 +113,7 @@ section {
 }
 .inicio .content {
     text-align: right;
+    padding-right: 7%;
 }
 .inicio .content h1 {
     font-size: 2rem;
@@ -169,6 +170,7 @@ hr {
     cursor: pointer;
     text-decoration: none;
 }
+
 .introducao {
     padding-top: 9rem;
     padding-bottom: 0;
@@ -211,17 +213,27 @@ hr {
     text-transform: none;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 900px) {
 
     section {
         padding: 2rem 7%;
     }
 
     .header {
-        padding: 1rem 7%;
+        padding: 1rem clamp(2rem, 6vw, 7%);
+    }
+    .header .navbar {
+        max-width: 100%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        gap: .4rem; 
+        justify-content: flex-start;
     }
     .header .navbar .logo {
         padding: 0;
+        margin: 0;
     }
     .header .navbar .menu-btn {
         display: none;
@@ -230,7 +242,7 @@ hr {
         position: static;
         display: flex;
         align-items: center;
-        gap: 2.5rem;
+        gap: .2rem;
         height: auto;
         width: auto;
         background: transparent;
@@ -238,6 +250,9 @@ hr {
         left: 0;
         top: 0;
         transition: none;
+        margin-left: auto;
+        white-space: normal;
+        flex-shrink: 0;
     }
     .header .navbar ul li {
         margin: 0;
@@ -247,7 +262,7 @@ hr {
         font-size: 1.5rem;
         letter-spacing: .1rem;
         color: #282828;
-        padding: 8px 15px;
+        padding: 6px 10px;
         border-radius: 5px;
         transition: 0.3s ease;
     }
@@ -258,7 +273,7 @@ hr {
     }
 
     .inicio {
-        min-height: calc(100dvh - 10rem);
+        min-height: calc(100dvh - 35rem);
         margin-top: 10.7rem;
         display: flex;
         align-items: center;
@@ -266,21 +281,27 @@ hr {
         padding: 0 7%;
     }
     .inicio .content {
-        max-width: 55rem;
+        max-width: 50rem;
         text-align: right;
+        padding-right: 0;
     }
     .inicio .content h1 {
-        font-size: 6rem;
-        line-height: 1.15;
+        font-size: 4.5rem;
+        line-height: 1.18;
     }
     .inicio .content p {
-        font-size: 4rem;
+        font-size: 3rem;
         margin-top: 1rem;
     }
     .inicio hr {
-        width: 50rem;
+        width: 39rem;
         height: .7rem;
-        margin: 1.5rem 0 1rem 5.2rem;
+        margin: 1.5rem 0 1rem 11.25rem;
+    }
+
+    h1 {
+        font-size: 3.6rem;
+        padding-bottom: 2rem;
     }
 
     .container {
@@ -290,7 +311,7 @@ hr {
         padding: 0;
     }
     .container .box .content p {
-        font-size: 2rem;
+        font-size: 1.8rem;
         text-align: justify;
         line-height: 1.8;
     }
@@ -309,12 +330,12 @@ hr {
         color: #fff;
     }
 
-    .sobre, .introducao {
+    .introducao {
         margin-top: 1.8rem;
     }
 
     .footer {
-        padding: 2rem 7%;
+        padding: 1rem clamp(2rem, 6vw, 7%);
         display: grid;
         grid-template-columns: 1fr auto;
         grid-template-rows: auto auto;
@@ -334,6 +355,7 @@ hr {
         font-size: 1.8rem;
         line-height: 1.6;
         padding-top: 1.2rem;
+        padding-left: 1rem;
     }
     .footer .icon {
         grid-column: 2 / 3;
@@ -364,5 +386,22 @@ hr {
         font-weight: lighter;
         letter-spacing: .2rem;
         white-space: nowrap;
+        padding-bottom: 1rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    
+    .header .navbar {
+        gap: .4rem;
+    }
+    .header .navbar ul {
+        gap: 1rem;
+    }
+    .header .navbar ul li a {
+        font-size: 1.8rem;
+        letter-spacing: .1rem;
+        color: #282828;
+        padding: 8px 15px;
     }
 }

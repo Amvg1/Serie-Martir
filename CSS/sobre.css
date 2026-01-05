@@ -38,22 +38,32 @@ h2 {
     filter: invert(1) hue-rotate(180deg) saturate(1.4);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 900px) {
+
+    h1 {
+        font-size: 3.6rem;
+        text-align: center;
+        padding-bottom: 2rem;
+    }
 
     .fundadora .container .box .content {
         display: grid;
-        grid-template-columns: 380px 1fr;
+        grid-template-columns: 322px 1fr;
         grid-template-areas:
             "titulo titulo"
             "imagem texto";
-        column-gap: 4rem;
+        column-gap: 1.5rem;
         align-items: stretch;
+    }
+
+    .fundadora .container .box .content img {
+        margin: 0;
     }
 
     .container .box .content h2 {
         grid-area: titulo;
         font-size: 3rem;
-        margin-bottom: 1rem;
+        padding-bottom: 1.8rem;
     }
 
     .container .box .content img {
@@ -61,7 +71,7 @@ h2 {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        border-radius: 6px;
+        border-radius: 15px;
     }
 
     .fundadora .container .box .content p {
@@ -75,13 +85,13 @@ h2 {
     .local-texto {
         font-size: 2rem;
         margin-bottom: 3rem;
-        max-width: 700px;
+        max-width: 900px;
     }
 
     .local-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 4rem;
+        gap: 1rem;
         align-items: stretch;
     }
 
@@ -104,8 +114,12 @@ h2 {
 
     .local-imagem p,
     .local-mapa p {
-        font-size: 2rem;
+        font-size: 1.8rem;
         margin-bottom: 1rem;
         font-weight: 500;
+    }
+
+    .local .local-mapa p span {
+        display: none;
     }
 }
