@@ -48,11 +48,11 @@ h2 {
 
     .fundadora .container .box .content {
         display: grid;
-        grid-template-columns: 322px 1fr;
+        grid-template-columns: 50% 1fr;
         grid-template-areas:
             "titulo titulo"
             "imagem texto";
-        column-gap: 1.5rem;
+        column-gap: 2rem;
         align-items: stretch;
     }
 
@@ -91,7 +91,7 @@ h2 {
     .local-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 1rem;
+        gap: 2rem;
         align-items: stretch;
     }
 

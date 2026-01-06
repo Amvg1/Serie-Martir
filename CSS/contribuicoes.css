@@ -1,4 +1,5 @@
 /* Banner e versículo */
+/* Banner e versículo */
 .inicio {
     background: url(../IMG/banner.jpg) no-repeat;
     background-size: cover;
@@ -6,63 +7,74 @@
     margin: 2rem;
     margin-top: 8.9rem;
     margin-bottom: 0;
-    padding-bottom: 5rem;
+    padding: 5rem 1rem;
     border-radius: 10px;
 }
+
 .inicio .content {
     text-align: right;
+    padding-right: 1rem;
 }
+
 .inicio .content h1 {
     font-size: 2rem;
     color: #282828;
-    padding-right: 1rem;
 }
-hr {
-    border: none;
-    height: .3rem;
-    width: 10.8rem;
-    background-color: #820101;
-    margin-left: 18rem;
-    margin-top: 1rem;
-    margin-bottom: .5rem;
-}
+
 .inicio .content p {
     font-size: 1.4rem;
     color: #282828;
-    padding-right: 1rem;
 }
+
+/* HR alinhado corretamente (sem margem fixa) */
+.inicio hr {
+    border: none;
+    height: .3rem;
+    width: 12rem;
+    background-color: #820101;
+    margin: 1rem 0 .5rem auto;
+}
+
 
 @media (min-width: 900px) {
 
-    h1 {
-        font-size: 3.6rem;
-        text-align: center;
-        padding-bottom: 2rem;
-    }
-    
     .inicio {
-        max-width: calc(100% - 14%);
-        min-height: calc(100dvh - 40rem);
         margin: 10.7rem auto 0;
+        max-width: calc(100% - 14%);
+        min-height: clamp(55vh, 65vh, 7vh);
         padding: 4rem;
         border-radius: 10px;
+        background-size: cover;
+        background-position: center top;
     }
 
     .inicio .content {
         text-align: right;
+        padding-right: clamp(2rem, 3dvw, 7%);
     }
 
     .inicio .content h1 {
-        font-size: 4.5rem;
+        font-size: clamp(3.2rem, 4dvw, 4.5rem);
+        line-height: 1.2;
     }
 
     .inicio .content p {
-        font-size: 2.5rem;
+        font-size: clamp(2rem, 2.6dvw, 2.8rem);
+        line-height: 1.3;
     }
 
     .inicio hr {
-        width: 35rem;
-        margin: 1.5rem 0rem 1rem 3rem;
+        width: clamp(20rem, 35dvw, 35rem);
+        height: .5rem;
+        margin: 0 0 1rem auto;
     }
 }
 
+@media (min-width: 1100px) {
+    .inicio {
+        min-height: 65dvh;
+    }
+    .inicio .content {
+        padding-right: clamp(2rem, 6dvw, 7%);
+    }
+}
