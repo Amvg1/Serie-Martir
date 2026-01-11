@@ -33,7 +33,7 @@ body.no-scroll {
     overflow: hidden;
 }
 section {
-    padding: 2rem;
+    padding: 1.8rem clamp(3rem, 5vw, 5rem);
 }
 
 /* Cabeçalho */
@@ -112,8 +112,9 @@ section {
     background: url(../IMG/banner.jpg) no-repeat;
     background-size: cover;
     background-position: center top;
-    margin-top: 8.9rem;
+    margin-top: 9rem;
     padding: 5rem 1rem;
+    margin-bottom: 1rem;
 }
 .inicio .content {
     width: 100%;
@@ -127,6 +128,8 @@ section {
 .inicio .content h1 {
     font-size: 2rem;
     color: #282828;
+    margin: 0;
+    text-align: right;
 }
 hr {
     border: none;
@@ -139,6 +142,16 @@ hr {
 .inicio .content p {
     font-size: 1.4rem;
     color: #282828;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.4rem;
+    font-weight: 500;
+    color: #282828;
+    text-align: left;
+    margin-bottom: 2rem;
+    margin-left: .4rem;
 }
 
 /* Classes gerais */
@@ -164,6 +177,7 @@ hr {
 .container .box .content p {
     font-size: 14px;
     text-align: justify;
+    line-height: 1.8;
 }
 .container .btn {
     display: inline-block;
@@ -179,10 +193,11 @@ hr {
     border-radius: 50px;
     cursor: pointer;
     text-decoration: none;
+    margin-top: 2px;
 }
 
 .introducao {
-    padding-top: 9rem;
+    padding-top: 10rem;
     padding-bottom: 0;
 }
 
@@ -190,6 +205,7 @@ hr {
 .footer {
     background: #282828;
     padding: 2rem;
+    margin-top: 2rem;
 }
 .footer .icon {
     text-align: right;
@@ -287,6 +303,60 @@ hr {
     .inicio hr {
         width: clamp(8rem, 40vw, 30rem);
     }
+    .container {
+        padding: 3rem;
+    }
+    .footer {
+        padding: 1rem clamp(2rem, 6vw, 7%);
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-rows: auto auto;
+        column-gap: 2rem;
+        align-items: start; /* topo */
+    }
+    .footer .text {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+        text-align: left;
+    }
+    .footer .text br {
+        display: none;
+    }
+    .footer .text p {
+        margin: 0;
+        font-size: 1.6rem;
+        line-height: 1.6;
+        padding-top: 1.2rem;
+        padding-left: 1rem;
+    }
+    .footer .icon {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+        display: flex;
+        justify-content: flex-end;
+        gap: .1rem;
+    }
+    .footer .icon a {
+        height: 5rem;
+        width: 5rem;
+        line-height: 5rem;
+        font-size: 2rem;
+        color: #f2f5f7;
+        border: .1rem solid rgba(117, 117, 117, 0.3);
+        border-radius: 50%;
+        text-align: center;
+    }
+    .footer .copyright {
+        grid-column: 1 / -1;
+        grid-row: 2 / 3;
+        margin-top: .8rem;
+        text-align: center;
+        font-size: 1.4rem;
+        font-weight: lighter;
+        letter-spacing: .2rem;
+        white-space: nowrap;
+        padding-bottom: 1rem;
+    }
 }
 @media (min-width: 600px) {
     .inicio {       
@@ -311,6 +381,9 @@ hr {
     }
 }
 @media (min-width: 700px) {
+    .header {
+        padding: 0 4rem;
+    }
     .inicio {       
         min-height: 50vh;          
         max-height: 90vh;         
@@ -327,65 +400,17 @@ hr {
         width: clamp(8rem, 40vw, 40rem);
         height: 0.5rem;
     }
-    .footer {
-        padding: 1rem clamp(2rem, 6vw, 7%);
-        display: grid;
-        grid-template-columns: 1fr auto;
-        grid-template-rows: auto auto;
-        column-gap: 2rem;
-        align-items: start; /* topo */
-    }
-    .footer .text {
-        grid-column: 1 / 2;
-        grid-row: 1 / 2;
-        text-align: left;
-    }
-    .footer .text br {
-        display: none;
-    }
-    .footer .text p {
-        margin: 0;
-        font-size: 1.8rem;
-        line-height: 1.6;
-        padding-top: 1.2rem;
-        padding-left: 1rem;
-    }
-    .footer .icon {
-        grid-column: 2 / 3;
-        grid-row: 1 / 2;
-        display: flex;
-        justify-content: flex-end;
-        gap: 1rem;
-    }
-    .footer .icon a {
-        height: 5rem;
-        width: 5rem;
-        line-height: 5rem;
-        font-size: 2rem;
-        color: #f2f5f7;
-        border: .1rem solid rgba(117, 117, 117, 0.3);
-        border-radius: 50%;
-        text-align: center;
-    }
-    .footer .copyright {
-        grid-column: 1 / -1;
-        grid-row: 2 / 3;
-        margin-top: 1.5rem;
-        text-align: center;
-        font-size: 1.5rem;
-        font-weight: lighter;
-        letter-spacing: .2rem;
-        white-space: nowrap;
-        padding-bottom: 1rem;
-    }
 }
 
 @media (min-width: 900px) {
     section {
-        padding: 2rem 7%;
+        padding: 2rem 6%;
     }
     .header {
+        height: 96px;
         padding: 0.5rem clamp(2rem, 6vw, 7%);
+        display: flex;
+        align-items: center;
         line-height: 2rem;
     }
     .header .navbar {
@@ -394,12 +419,17 @@ hr {
         display: flex;
         align-items: center;
         flex-wrap: nowrap;
-        gap: .4rem; 
-        justify-content: flex-start;
+        height: 100%;
+        gap: .2rem; 
+        justify-content: space-between;
     }
     .header .navbar .logo {
         padding: 0;
         margin: 0;
+    }
+    .header .navbar .logo img {
+        padding-top: 0;
+        height: 48px; /* opcional, mas ajuda a padronizar */
     }
     .header .navbar .menu-btn {
         display: none;
@@ -443,13 +473,14 @@ hr {
     }
     .inicio {
         margin-top: 10.7rem;
-        min-height: clamp(55vh, 65vh, 75vh);
+        min-height: clamp(55vh, 65vh, 85vh);
         display: flex;
         align-items: center;
         justify-content: center;
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center top;
+        margin-bottom: 2rem;
     }
     .inicio .content {
         width: 100%;
@@ -476,11 +507,12 @@ hr {
         margin: 0 0 1rem auto;
     }
     h1 {
+        text-align: center;
         font-size: 3.6rem;
-        padding-bottom: 2rem;
+        margin-bottom: 2.5rem;
     }
     .container {
-        padding: 4rem 10%;       
+        padding: 4rem 10%;
     }
     .container .box .content {
         padding: 0;
@@ -505,6 +537,7 @@ hr {
     }
     .introducao {
         margin-top: 1.8rem;
+        margin-bottom: 2rem;
     }
     .footer {
         padding: 1rem clamp(2rem, 6vw, 7%);
@@ -566,7 +599,7 @@ hr {
         gap: .4rem;
     }
     .header .navbar ul {
-        gap: 1rem;
+        gap: .4rem;
     }
     .header .navbar ul li a {
         font-size: 1.8rem;
@@ -575,15 +608,18 @@ hr {
         padding: 8px 15px;
     }
     .inicio {
-        min-height: 78vh;
+        min-height: 86vh;
     }
     .inicio .content {
         padding-inline: clamp(7rem, 12vw, 7%);
     }
 }
 @media (min-width: 1400px) {
+    .header .navbar ul {
+        gap: 2rem;
+    }
     .inicio {
-        min-height: 87vh;
+        min-height: 90vh;
     }
     .inicio .content {
         padding-inline: clamp(4rem, 1vw, 7%);

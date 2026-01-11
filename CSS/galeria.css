@@ -1,7 +1,7 @@
 .carousel-card {
     width: 100%;
     margin: 0px auto;
-    padding: 16px;
+    padding: 16px 7%;
     border-radius: 20px;
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(8px);
@@ -47,7 +47,7 @@
 
 .slides .inner {
     width: calc(100% * 4); /* 6 slides */
-    height: 300px;
+    height: clamp(300px, 50vw, 700px);
     display: flex;
     transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
     will-change: transform;
@@ -115,15 +115,19 @@
 
 @media (min-width: 900px) {
 
+    .testemunhos h1 {
+        margin-top: -2rem;
+    }
+
     /* Sections alinhadas ao layout da página */
     section.testemunhos,
     section.registros,
     section.formaturas {
-        padding: 0 7%;
+        padding: 0 6%;
         padding-top: 4rem;
     }
     section.formaturas {
-        padding-bottom: 4rem;
+        padding-bottom: 2rem;
     }
 
     /* Caixa externa do carrossel */
@@ -146,10 +150,6 @@
         max-width: 100%;
         margin: 0;
         position: relative;
-    }
-
-    .slides .inner {
-        height: 560px;
     }
 
     .slides .slide {
@@ -228,7 +228,5 @@
     .carousel-arrow:active i {
         transform: scale(0.95);
     }
-
-
 }
 

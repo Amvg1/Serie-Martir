@@ -40,12 +40,6 @@ h2 {
 
 @media (min-width: 900px) {
 
-    h1 {
-        font-size: 3.6rem;
-        text-align: center;
-        padding-bottom: 2rem;
-    }
-
     .fundadora .container .box .content {
         display: grid;
         grid-template-columns: 50% 1fr;
