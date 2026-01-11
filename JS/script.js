@@ -28,6 +28,24 @@ document.querySelectorAll(".carousel-card").forEach(card => {
     let index = 1;
     let slideWidth = slider.offsetWidth;
     let isAnimating = false;
+    const isMissoes = card.closest(".missoes");
+    let autoplayInterval = null;
+
+    if (isMissoes) {
+        autoplayInterval = setInterval(() => {
+            if (isDragging || isAnimating) return;
+            index++;
+            syncUIWithTiming(index);
+            moveToIndex(true);
+        }, 8000);
+    }
+
+    function stopAutoplay() {
+        if (autoplayInterval) {
+            clearInterval(autoplayInterval);
+            autoplayInterval = null;
+        }
+    }
 
     function syncUIWithTiming(targetIndex) {
         const realIndex = (targetIndex - 1 + 4) % 4;
@@ -78,6 +96,7 @@ document.querySelectorAll(".carousel-card").forEach(card => {
     }
 
     slider.addEventListener("touchstart", e => {
+        stopAutoplay();
         startX = e.touches[0].clientX;
         currentX = startX;
         isDragging = true;
@@ -113,6 +132,7 @@ document.querySelectorAll(".carousel-card").forEach(card => {
 
     bullets.forEach((bullet, i) => {
         bullet.addEventListener("click", () => {
+            stopAutoplay();
             index = i + 1;
             radios.forEach(r => r.checked = false);
             radios[i].checked = true;
