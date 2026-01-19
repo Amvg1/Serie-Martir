@@ -78,6 +78,69 @@ form {
 
 
 /* Estilo opções de pagamento */
+
+:root {
+    --primary: #4a90e2;
+    --border: #ddd;
+    --bg-details: #f8f9fa;
+}
+
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; color: #333; }
+
+.payment-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 450px;
+}
+
+/* Estilo dos Cards */
+.payment-card {
+    display: flex;
+    align-items: center;
+    padding: 18px;
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.payment-card:hover { background-color: #fcfcfc; }
+
+.payment-card input[type="radio"] { margin-right: 15px; transform: scale(1.2); }
+
+/* Estilo para quando o card está selecionado */
+.payment-card.active {
+    border-color: var(--primary);
+    background-color: #f0f7ff;
+}
+
+/* Seção de Detalhes (Escondida por padrão) */
+.details-section {
+    display: none;
+    margin-top: 10px;
+    padding: 20px;
+    background-color: var(--bg-details);
+    border-radius: 8px;
+    border-left: 4px solid var(--primary);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(-5px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+/* Inputs dentro dos detalhes */
+.details-section input, .details-section select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/*
 :root {
     --primary-color: #4a90e2;
     --border-color: #820101;
@@ -88,7 +151,6 @@ body {
     font-family: sans-serif; padding: 20px;
 }
 
-/* Container que agrupa os cards */
 .payment-container {
     display: flex;
     flex-direction: column;
@@ -96,12 +158,10 @@ body {
     max-width: 400px;
 }
 
-/* Oculta o círculo padrão do radio button */
 .payment-card input[type="radio"] {
     display: none;
 }
 
-/* Estilização da "Caixa" (Label) */
 .payment-card {
     display: flex;
     align-items: center;
@@ -118,7 +178,6 @@ body {
     border-color: #bbb;
 }
 
-/* Estilo quando o card está selecionado */
 .payment-card input[type="radio"]:checked + .card-content {
     color: var(--primary-color);
 }
@@ -128,20 +187,17 @@ body {
     background-color: var(--primary-color);
 }
 
-/* Mudança na borda do card selecionado */
 .payment-card:has(input:checked) {
     border-color: var(--primary-color);
     background-color: #f0f7ff;
 }
 
-/* Texto dentro do card */
 .card-content {
     font-size: 16px;
     font-weight: 600;
     flex-grow: 1;
 }
 
-/* Um pequeno círculo customizado para indicar a seleção */
 .custom-radio {
     width: 18px;
     height: 18px;
@@ -159,7 +215,9 @@ body {
     background: #820101; 
     color: white; 
     cursor: pointer;
-}
+} */
+
+
 
 @media (min-width: 768px) {
 

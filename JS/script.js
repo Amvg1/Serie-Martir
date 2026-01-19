@@ -163,3 +163,29 @@ document.querySelectorAll(".carousel-card").forEach(card => {
     syncUIWithTiming(index);
     moveToIndex(true);
 });
+
+
+const radioButtons = document.querySelectorAll('input[name="metodo"]');
+        const sections = document.querySelectorAll('.details-section');
+        const cards = document.querySelectorAll('.payment-card');
+
+        function updateDisplay() {
+            // Primeiro, escondemos todas as seções e removemos a classe ativa dos cards
+            sections.forEach(sec => sec.style.display = 'none');
+            cards.forEach(card => card.classList.remove('active'));
+
+            // Agora, mostramos apenas a seção ligada ao radio selecionado
+            const selectedRadio = document.querySelector('input[name="metodo"]:checked');
+            const targetId = `detalhes-${selectedRadio.value}`;
+            
+            document.getElementById(targetId).style.display = 'block';
+            selectedRadio.parentElement.classList.add('active');
+        }
+
+        // Adiciona o evento de mudança em cada rádio
+        radioButtons.forEach(radio => {
+            radio.addEventListener('change', updateDisplay);
+        });
+
+        // Inicializa o estado correto ao carregar a página
+        updateDisplay();

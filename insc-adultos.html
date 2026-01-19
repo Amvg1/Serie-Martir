@@ -223,7 +223,7 @@
                 <div class="content">
                     <h2>Pagamento</h2>
 
-                    <form action="#" method="POST">
+                    <!-- <form action="#" method="POST">
                         <fieldset style="border: none;">
                             <legend style="margin-bottom: 20px; font-weight: bold;">Selecione o método de pagamento:
                             </legend>
@@ -253,6 +253,49 @@
                             <button type="submit" class="btn">
                                 Confirmar
                             </button>
+                        </fieldset>
+                    </form> -->
+
+                    <form id="formPagamento">
+                        <fieldset style="border: none;">
+                            <legend>
+                                <h2>Método de Pagamento</h2>
+                            </legend>
+
+                            <div class="payment-container">
+
+                                <label class="payment-card" for="opcPix">
+                                    <input type="radio" id="opcPix" name="metodo" value="pix" checked>
+                                    <span>Pix</span>
+                                </label>
+                                <div id="detalhes-pix" class="details-section" style="display: block;">
+                                    <strong>Pix:</strong> <span style="color: var(--primary);">suachave@email.com</span>
+                                </div>
+
+                                <label class="payment-card" for="opcCartao">
+                                    <input type="radio" id="opcCartao" name="metodo" value="cartao">
+                                    <span>Cartão de Crédito</span>
+                                </label>
+                                <div id="detalhes-cartao" class="details-section">
+                                    <p>Parcelamento em até <strong>12x</strong>.</p>
+                                    <select>
+                                        <option>Selecione as parcelas</option>
+                                        <option>1x de R$ 100,00</option>
+                                        <option>12x de R$ 8,33</option>
+                                    </select>
+                                    <input type="text" placeholder="Informação adicional do cartão">
+                                </div>
+
+                                <label class="payment-card" for="opcBoleto">
+                                    <input type="radio" id="opcBoleto" name="metodo" value="boleto">
+                                    <span>Boleto Bancário</span>
+                                </label>
+                                <div id="detalhes-boleto" class="details-section">
+                                    <p>Parcelamento em até <strong>3x</strong> no carnê.</p>
+                                    <p><small>Entre em contato pelo número: <strong>(xx) xxxxx-xxxx</strong></small></p>
+                                </div>
+
+                            </div>
                         </fieldset>
                     </form>
 
