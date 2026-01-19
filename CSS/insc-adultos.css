@@ -76,6 +76,91 @@ form {
     margin-right: 6px;
 }
 
+
+/* Estilo opções de pagamento */
+:root {
+    --primary-color: #4a90e2;
+    --border-color: #820101;
+    --bg-hover: #f9f9f9;
+}
+
+body {
+    font-family: sans-serif; padding: 20px;
+}
+
+/* Container que agrupa os cards */
+.payment-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 400px;
+}
+
+/* Oculta o círculo padrão do radio button */
+.payment-card input[type="radio"] {
+    display: none;
+}
+
+/* Estilização da "Caixa" (Label) */
+.payment-card {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.payment-card:hover {
+    background-color: var(--bg-hover);
+    border-color: #bbb;
+}
+
+/* Estilo quando o card está selecionado */
+.payment-card input[type="radio"]:checked + .card-content {
+    color: var(--primary-color);
+}
+
+.payment-card input[type="radio"]:checked ~ .custom-radio {
+    border-color: var(--primary-color);
+    background-color: var(--primary-color);
+}
+
+/* Mudança na borda do card selecionado */
+.payment-card:has(input:checked) {
+    border-color: var(--primary-color);
+    background-color: #f0f7ff;
+}
+
+/* Texto dentro do card */
+.card-content {
+    font-size: 16px;
+    font-weight: 600;
+    flex-grow: 1;
+}
+
+/* Um pequeno círculo customizado para indicar a seleção */
+.custom-radio {
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--border-color);
+    border-radius: 50%;
+    margin-left: 10px;
+    transition: 0.2s;
+}
+
+.btn-enviar{
+    margin-top: 20px; 
+    padding: 10px 25px; 
+    border-radius: 5px; 
+    border: none; 
+    background: #820101; 
+    color: white; 
+    cursor: pointer;
+}
+
 @media (min-width: 768px) {
 
     .pacote .container .box .content ul {
