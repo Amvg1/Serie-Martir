@@ -163,3 +163,57 @@ document.querySelectorAll(".carousel-card").forEach(card => {
     syncUIWithTiming(index);
     moveToIndex(true);
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const checkbox = document.getElementById("aceite-termos");
+    const btnInscricao = document.getElementById("btn-inscricao");
+    const etapaFormulario = document.getElementById("etapa-formulario");
+    const etapaPagamento = document.getElementById("etapa-pagamento");
+    const form = document.getElementById("form-inscricao");
+
+    // Botão começa desabilitado
+    btnInscricao.disabled = true;
+
+    // Habilitar botão ao aceitar termos
+    checkbox.addEventListener("change", () => {
+        btnInscricao.disabled = !checkbox.checked;
+    });
+
+    // Clique no botão "Realizar inscrição"
+    btnInscricao.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        etapaFormulario.style.display = "block";
+        etapaFormulario.scrollIntoView({ behavior: "smooth" });
+    });
+
+    // Envio do formulário → mostrar pagamento
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        // Esconde formulário e mostra etapa de pagamento
+        etapaFormulario.style.display = "none";
+        etapaPagamento.style.display = "block";
+
+        // Descobre a forma de pagamento escolhida
+        const pagamentoSelecionado = document.querySelector(
+            'input[name="pagamento"]:checked'
+        ).value;
+
+        // Esconde todas as opções
+        document.querySelectorAll(".pagamento-opcao").forEach(opcao => {
+            opcao.style.display = "none";
+        });
+
+        // Mostra a opção correta
+        if (pagamentoSelecionado === "PIX") {
+            document.getElementById("pagamento-pix").style.display = "block";
+        } else if (pagamentoSelecionado === "Cartão de crédito") {
+            document.getElementById("pagamento-cartao").style.display = "block";
+        } else if (pagamentoSelecionado === "Boleto") {
+            document.getElementById("pagamento-boleto").style.display = "block";
+        }
+
+        etapaPagamento.scrollIntoView({ behavior: "smooth" });
+    });
+});

@@ -113,22 +113,22 @@
                         </p>
                         <div class="termos">
                             <label class="checkbox-termos">
-                                <input type="checkbox" required>
-                                <span>
+                                <input type="checkbox" id="aceite-termos" required>
+                                <label for="aceite-termos">
                                     Declaro que li e estou de acordo com todas as informações, 
                                     condições de inscrição e política de cancelamento 
                                     apresentadas acima, estando ciente de que a inscrição somente 
                                     será confirmada após o envio do formulário e realização do pagamento.
-                                </span>
+                                </label>
                             </label>
                         </div>
-                        <a href="#" class="btn">Realizar inscrição</a>
+                        <button class="btn" id="btn-inscricao" disabled>Realizar inscrição</button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="formulario">
+        <section class="formulario" id="etapa-formulario">
             <h1>Etapa 1 de 2</h1>
             <div class="container">
                 <div class="box">
@@ -138,7 +138,7 @@
                             Ao preencher e enviar esse formulário sua vaga ficará reservada por 24h, 
                             sendo desconsiderada caso não haja confirmação de pagamento no período estabelecido.<br><br>
                         </p>
-                        <form action="">
+                        <form id="form-inscricao">
                             <div class="field">
                                 <label>Nome completo</label>
                                 <input type="text" required>
@@ -202,9 +202,9 @@
                                 <label>Escolha uma das formas de pagamento:</label>
 
                                 <div class="options">
-                                    <label><input type="radio" name="pagamento" required> PIX</label>
-                                    <label><input type="radio" name="pagamento"> Cartão de crédito</label>
-                                    <label><input type="radio" name="pagamento"> Boleto</label>
+                                    <label><input type="radio" name="pagamento" value="PIX" required> PIX</label>
+                                    <label><input type="radio" name="pagamento" value="Cartão de crédito"> Cartão de crédito</label>
+                                    <label><input type="radio" name="pagamento" value="Boleto"> Boleto</label>
                                 </div>
                             </div>
 
@@ -216,15 +216,34 @@
             </div>
         </section>
 
-        <section class="pagamento">
+        <section class="pagamento" id="etapa-pagamento">
             <h1>Etapa 2 de 2</h1>
             <div class="container">
                 <div class="box">
                     <div class="content">
                         <h2>Pagamento</h2>
-                        <p>
-                            Informações para pagamento + redirecionamento para página do mercado pago...
-                        </p>
+                        <div id="pagamento-pix" class="pagamento-opcao">
+                            <p>
+                                Você escolheu <strong>PIX</strong>.<br><br>
+                                ...
+                            </p>
+                        </div>
+
+                        <div id="pagamento-cartao" class="pagamento-opcao">
+                            <p>
+                                Você escolheu <strong>Cartão de Crédito</strong>.<br><br>
+                                Você será redirecionado para a plataforma de pagamento
+                                para finalizar sua inscrição no cartão de crédito.
+                            </p>
+                        </div>
+
+                        <div id="pagamento-boleto" class="pagamento-opcao">
+                            <p>
+                                Você escolheu <strong>Boleto Bancário</strong>.<br><br>
+                                O boleto será gerado para pagamento.
+                                A confirmação da inscrição ocorrerá após a compensação.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>

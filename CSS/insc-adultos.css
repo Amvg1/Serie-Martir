@@ -97,11 +97,25 @@ form {
     cursor: pointer;
 }
 
-.termos .checkbox-termos span {
+.termos .checkbox-termos label {
     font-size: 1.8rem;
     font-weight: 380;
     text-align: justify;
     padding-bottom: 2rem;
+}
+
+#etapa-formulario,
+#etapa-pagamento {
+    display: none;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagamento-opcao {
+    display: none;
 }
 
 @media (min-width: 768px) {
