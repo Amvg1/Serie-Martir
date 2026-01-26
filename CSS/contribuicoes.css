@@ -40,19 +40,22 @@
 .carousel-title {
     display: none;
 }
-.missoes .slide_1 {
-    background-image: url(../IMG/2021.JPG);
-}
-.missoes .slide_2 {
-    background-image: url(../IMG/2022.jpg);
-}
-.missoes .slide_3 {
-    background-image: url(../IMG/2023.jpg);
-}
-.missoes .slide_4 {
-    background-image: url(../IMG/2025.jpg);
+.slides .inner {
+    width: calc(99.99% * 4);
 }
 
+/* Slide individual */
+.slides .slide {
+    width: calc(99.99% / 4);
+}
+
+.slide img, video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
 @media (min-width: 361px) {
     .inicio {

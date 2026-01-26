@@ -13,32 +13,21 @@ function menuShow() {
 
 // carrossel
 document.querySelectorAll(".carousel-card").forEach(card => {
-
-    let didSlideChange = false;
     const slider = card.querySelector(".slider");
     const inner = card.querySelector(".inner");
-    const slides = card.querySelectorAll(".slide");
+    const allSlides = card.querySelectorAll(".slide");
     const title = card.querySelector(".carousel-title");
     const bullets = card.querySelectorAll(".bullets label");
-    const radios = slider.querySelectorAll('input[type="radio"]');
 
+    const realSlidesCount = bullets.length;
+    let index = 1;
     let startX = 0;
     let currentX = 0;
     let isDragging = false;
-    let index = 1;
-    let slideWidth = slider.offsetWidth;
     let isAnimating = false;
+
     const isMissoes = card.closest(".missoes");
     let autoplayInterval = null;
-
-    if (isMissoes) {
-        autoplayInterval = setInterval(() => {
-            if (isDragging || isAnimating) return;
-            index++;
-            syncUIWithTiming(index);
-            moveToIndex(true);
-        }, 8000);
-    }
 
     function stopAutoplay() {
         if (autoplayInterval) {
@@ -47,54 +36,62 @@ document.querySelectorAll(".carousel-card").forEach(card => {
         }
     }
 
-    function syncUIWithTiming(targetIndex) {
-        const realIndex = (targetIndex - 1 + 4) % 4;
+    if (isMissoes) {
+        autoplayInterval = setInterval(() => {
+            if (isDragging || isAnimating) return;
+            index++;
+            move(true);
+            updateBullets();
+            updateTitle();
+        }, 8000);
+    }
 
-        // Atualiza bullets
-        bullets.forEach((b, i) => {
-            b.style.transform = i === realIndex ? "scale(1.2)" : "scale(1)";
-            b.style.background = i === realIndex ? "#444" : "#ccc";
-        });
+    function slideWidth() {
+        return slider.offsetWidth;
+    }
 
-        // Atualiza título apenas se for diferente
-        const newText = slides[targetIndex].dataset.title;
-        if (title.textContent !== newText) {
+    function normalize(i) {
+        return (i - 1 + realSlidesCount) % realSlidesCount;
+    }
+
+    let lastTitleIndex = null;
+
+    function updateTitle() {
+        const realIndex = normalize(index);
+        const newText = allSlides[index].dataset.title || "";
+
+
+        // só anima se o slide REAL mudou
+        if (lastTitleIndex !== realIndex) {
             title.style.opacity = 0;
+
             setTimeout(() => {
                 title.textContent = newText;
                 title.style.opacity = 1;
             }, 150);
+
+            lastTitleIndex = realIndex;
         }
     }
 
-    function moveToIndex(animate = true) {
+    function updateBullets() {
+        const real = normalize(index);
+        bullets.forEach((b, i) => {
+            const active = i === real;
+            b.style.transform = active ? "scale(1.2)" : "scale(1)";
+            b.style.background = active ? "#444" : "#ccc";
+        });
+    }
+
+    function move(animate = true) {
         isAnimating = animate;
         inner.style.transition = animate
             ? "transform 0.7s cubic-bezier(0.22, 1, 0.36, 1)"
             : "none";
-        inner.style.transform = `translateX(${-index * slideWidth}px)`;
+        inner.style.transform = `translateX(${-index * slideWidth()}px)`;
     }
 
-    function updateBulletsProgress(delta) {
-        const progress = Math.min(Math.abs(delta) / slideWidth, 1);
-        const direction = delta < 0 ? 1 : -1;
-        const current = (index - 1 + 4) % 4;
-        const next = (current + direction + 4) % 4;
-
-        bullets.forEach((b, i) => {
-            if (i === current) {
-                b.style.transform = `scale(${1.2 - 0.2 * progress})`;
-                b.style.background = "#444";
-            } else if (i === next) {
-                b.style.transform = `scale(${1 + 0.2 * progress})`;
-                b.style.background = "#444";
-            } else {
-                b.style.transform = "scale(1)";
-                b.style.background = "#ccc";
-            }
-        });
-    }
-
+    /* --------- TOUCH --------- */
     slider.addEventListener("touchstart", e => {
         stopAutoplay();
         startX = e.touches[0].clientX;
@@ -107,61 +104,69 @@ document.querySelectorAll(".carousel-card").forEach(card => {
         if (!isDragging) return;
         currentX = e.touches[0].clientX;
         const delta = (currentX - startX) * 0.35;
-        inner.style.transform = `translateX(${-(index * slideWidth) + delta}px)`;
-        updateBulletsProgress(currentX - startX);
+        inner.style.transform =
+            `translateX(${-(index * slideWidth()) + delta}px)`;
     }, { passive: true });
 
     slider.addEventListener("touchend", () => {
         isDragging = false;
         const delta = currentX - startX;
 
-        if (delta < -slideWidth / 4) index++;
-        else if (delta > slideWidth / 4) index--;
+        if (delta < -slideWidth() / 4) index++;
+        else if (delta > slideWidth() / 4) index--;
 
-        syncUIWithTiming(index);
-        moveToIndex(true);
+        move(true);
+        updateBullets();
+        updateTitle();
     });
 
+    /* --------- LOOP INFINITO --------- */
     inner.addEventListener("transitionend", () => {
-        if (index === slides.length - 1) index = 1;
-        if (index === 0) index = slides.length - 2;
-        moveToIndex(false);
-        radios[index - 1].checked = true;
-        syncUIWithTiming(index);
+        if (index === allSlides.length - 1) index = 1;
+        if (index === 0) index = allSlides.length - 2;
+        move(false);
+        updateBullets();
+        updateTitle();
+        isAnimating = false;
     });
 
-    bullets.forEach((bullet, i) => {
-        bullet.addEventListener("click", () => {
+    /* --------- BULLETS --------- */
+    bullets.forEach((b, i) => {
+        b.addEventListener("click", () => {
             stopAutoplay();
             index = i + 1;
-            radios.forEach(r => r.checked = false);
-            radios[i].checked = true;
-            syncUIWithTiming(index);
-            moveToIndex(true);
+            move(true);
+            updateBullets();
+            updateTitle();
         });
     });
 
-    const leftArrow = card.querySelector(".carousel-arrow.left");
-    const rightArrow = card.querySelector(".carousel-arrow.right");
+    /* --------- SETAS --------- */
+    const left = card.querySelector(".carousel-arrow.left");
+    const right = card.querySelector(".carousel-arrow.right");
 
-    if (leftArrow && rightArrow) {
-        leftArrow.addEventListener("click", () => {
-            if (isAnimating) return;
-            index--;
-            syncUIWithTiming(index);
-            moveToIndex(true);
-        });
+    left?.addEventListener("click", () => {
+        stopAutoplay();
+        if (isAnimating) return;
+        index--;
+        move(true);
+        updateBullets();
+        updateTitle();
+    });
 
-        rightArrow.addEventListener("click", () => {
-            if (isAnimating) return;
-            index++;
-            syncUIWithTiming(index);
-            moveToIndex(true);
-        });
-    }
+    right?.addEventListener("click", () => {
+        stopAutoplay();
+        if (isAnimating) return;
+        index++;
+        move(true);
+        updateBullets();
+        updateTitle();
+    });
 
-    syncUIWithTiming(index);
-    moveToIndex(true);
+    /* INIT */
+    move(false);
+    updateBullets();
+    updateTitle();
 });
 
 document.addEventListener("DOMContentLoaded", () => {
