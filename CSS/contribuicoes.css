@@ -41,12 +41,13 @@
     display: none;
 }
 .slides .inner {
-    width: calc(99.99% * 4);
+    width: calc(100% * 4);
 }
 
 /* Slide individual */
 .slides .slide {
-    width: calc(99.99% / 4);
+    width: calc(100% / 4);
+    min-height: 600px;
 }
 
 .slide img, video {

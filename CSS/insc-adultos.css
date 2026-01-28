@@ -1,18 +1,3 @@
-.container .box .content ul {
-    list-style: none;
-}
-.container .box .content ul li {
-    font-size: 14px;
-    text-align: justify;
-}
-
-h2 {
-    font-size: 3rem;
-    color: #282828;
-    text-align: left;
-    line-height: 2;
-}
-
 h3 {
     font-size: 2.8rem;
     text-align: left;
@@ -24,56 +9,45 @@ span {
     font-weight: 500;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.8rem;
+.termos-accordion {
+    margin-top: 1.5rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
 }
-
-.field {
+.termos-toggle {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 1.2rem 0;
     display: flex;
-    flex-direction: column;
-}
-
-.field label {
-    font-size: 0.95rem;
-    margin-bottom: 0.4rem;
-    color: #000;
-    text-align: justify;
+    justify-content: space-between;
+    align-items: center;
     font-size: 1.8rem;
-}
-
-.field input,
-.field textarea {
-    padding: 0.7rem;
-    border-radius: 6px;
-    border: 1px solid rgba(0,0,0,0.3);
-    background: rgba(255,255,255,0.1);
-    color: #000;
-    font-size: 1.6rem;
-}
-
-.field input:focus,
-.field textarea:focus {
-    outline: none;
-    border-color: #820101;
-    background: rgba(255,255,255,0.15);
-}
-
-.options {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-    margin-top: 0.3rem;
-}
-
-.options label {
-    font-size: 1.6rem;
+    font-weight: 500;
     cursor: pointer;
+    color: #000;
+}
+.termos-toggle i {
+    transition: transform 0.3s ease;
 }
 
-.options input {
-    margin-right: 6px;
+/* Conteúdo escondido */
+.termos-conteudo {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+.termos-conteudo p {
+    font-size: 1.8rem;
+    text-align: justify;
+    padding-bottom: 1.5rem;
+}
+
+/* Estado aberto */
+.termos-accordion.ativo .termos-conteudo {
+    max-height: 1000px; 
+}
+.termos-accordion.ativo .termos-toggle i {
+    transform: rotate(180deg);
 }
 
 .termos {
@@ -81,7 +55,6 @@ form {
     padding-top: 2rem;
     border-top: 1px solid rgba(0,0,0,0.2);
 }
-
 .checkbox-termos {
     display: flex;
     align-items: flex-start;
@@ -90,13 +63,11 @@ form {
     color: #000;
     cursor: pointer;
 }
-
 .checkbox-termos input {
     margin-top: 0.4rem;
     transform: scale(1.3);
     cursor: pointer;
 }
-
 .termos .checkbox-termos label {
     font-size: 1.8rem;
     font-weight: 380;
@@ -104,26 +75,13 @@ form {
     padding-bottom: 2rem;
 }
 
-#etapa-formulario,
-#etapa-pagamento {
-    display: none;
-}
-
 button:disabled {
     opacity: 0.5;
     cursor: not-allowed;
 }
 
-.pagamento-opcao {
-    display: none;
-}
-
 @media (min-width: 768px) {
 
-    .pacote .container .box .content ul {
-        text-align: left;
-    }
-    .pacote .container .box .content ul li,
     .funcionamento .container .box .content p {
         font-size: 2rem;
         text-align: left;

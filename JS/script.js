@@ -4,10 +4,10 @@ var menuBtn = document.querySelector('.menu-btn i');
 function menuShow() {
     if (ul.classList.contains('open')) {
         ul.classList.remove('open');
-        document.body.classList.remove('no-scroll'); // libera scroll
+        document.body.classList.remove('no-scroll');
     } else {
         ul.classList.add('open');
-        document.body.classList.add('no-scroll'); // bloqueia scroll
+        document.body.classList.add('no-scroll');
     }
 }
 
@@ -60,8 +60,6 @@ document.querySelectorAll(".carousel-card").forEach(card => {
         const realIndex = normalize(index);
         const newText = allSlides[index].dataset.title || "";
 
-
-        // só anima se o slide REAL mudou
         if (lastTitleIndex !== realIndex) {
             title.style.opacity = 0;
 
@@ -91,7 +89,6 @@ document.querySelectorAll(".carousel-card").forEach(card => {
         inner.style.transform = `translateX(${-index * slideWidth()}px)`;
     }
 
-    /* --------- TOUCH --------- */
     slider.addEventListener("touchstart", e => {
         stopAutoplay();
         startX = e.touches[0].clientX;
@@ -120,7 +117,6 @@ document.querySelectorAll(".carousel-card").forEach(card => {
         updateTitle();
     });
 
-    /* --------- LOOP INFINITO --------- */
     inner.addEventListener("transitionend", () => {
         if (index === allSlides.length - 1) index = 1;
         if (index === 0) index = allSlides.length - 2;
@@ -130,7 +126,6 @@ document.querySelectorAll(".carousel-card").forEach(card => {
         isAnimating = false;
     });
 
-    /* --------- BULLETS --------- */
     bullets.forEach((b, i) => {
         b.addEventListener("click", () => {
             stopAutoplay();
@@ -141,7 +136,6 @@ document.querySelectorAll(".carousel-card").forEach(card => {
         });
     });
 
-    /* --------- SETAS --------- */
     const left = card.querySelector(".carousel-arrow.left");
     const right = card.querySelector(".carousel-arrow.right");
 
@@ -163,62 +157,41 @@ document.querySelectorAll(".carousel-card").forEach(card => {
         updateTitle();
     });
 
-    /* INIT */
     move(false);
     updateBullets();
     updateTitle();
 });
 
+
+document.addEventListener("DOMContentLoaded", () => {
+    const toggle = document.querySelector(".termos-toggle");
+    const accordion = document.querySelector(".termos-accordion");
+
+    if (toggle && accordion) {
+        toggle.addEventListener("click", () => {
+            accordion.classList.toggle("ativo");
+        });
+    }
+});
+
 document.addEventListener("DOMContentLoaded", () => {
     const checkbox = document.getElementById("aceite-termos");
     const btnInscricao = document.getElementById("btn-inscricao");
-    const etapaFormulario = document.getElementById("etapa-formulario");
-    const etapaPagamento = document.getElementById("etapa-pagamento");
-    const form = document.getElementById("form-inscricao");
 
-    // Botão começa desabilitado
     btnInscricao.disabled = true;
 
-    // Habilitar botão ao aceitar termos
     checkbox.addEventListener("change", () => {
         btnInscricao.disabled = !checkbox.checked;
     });
 
-    // Clique no botão "Realizar inscrição"
     btnInscricao.addEventListener("click", (e) => {
         e.preventDefault();
 
-        etapaFormulario.style.display = "block";
-        etapaFormulario.scrollIntoView({ behavior: "smooth" });
-    });
+        if (!checkbox.checked) return;
 
-    // Envio do formulário → mostrar pagamento
-    form.addEventListener("submit", (e) => {
-        e.preventDefault();
-
-        // Esconde formulário e mostra etapa de pagamento
-        etapaFormulario.style.display = "none";
-        etapaPagamento.style.display = "block";
-
-        // Descobre a forma de pagamento escolhida
-        const pagamentoSelecionado = document.querySelector(
-            'input[name="pagamento"]:checked'
-        ).value;
-
-        // Esconde todas as opções
-        document.querySelectorAll(".pagamento-opcao").forEach(opcao => {
-            opcao.style.display = "none";
-        });
-
-        // Mostra a opção correta
-        if (pagamentoSelecionado === "PIX") {
-            document.getElementById("pagamento-pix").style.display = "block";
-        } else if (pagamentoSelecionado === "Cartão de crédito") {
-            document.getElementById("pagamento-cartao").style.display = "block";
-        } else if (pagamentoSelecionado === "Boleto") {
-            document.getElementById("pagamento-boleto").style.display = "block";
-        }
-
-        etapaPagamento.scrollIntoView({ behavior: "smooth" });
+        window.open(
+            "https://forms.gle/KgvdPqASqyxni4Ho9",
+            "_blank"
+        );
     });
 });
