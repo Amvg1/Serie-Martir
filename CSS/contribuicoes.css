@@ -1,6 +1,6 @@
 /* Banner e versículo */
 .inicio {
-    background: url(../IMG/banner.jpg) no-repeat;
+    background: url(../IMG/banner-teste.jpg) no-repeat;
     background-size: cover;
     background-position: center top;
     margin: 2rem;

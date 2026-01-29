@@ -1,11 +1,12 @@
 h3 {
-    font-size: 2.8rem;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #282828;
     text-align: left;
-    padding-top: 1rem;
 }
 
 span {
-    font-size: 2.6rem;
+    font-size: 1.8rem;
     font-weight: 500;
 }
 
@@ -28,6 +29,10 @@ span {
 }
 .termos-toggle i {
     transition: transform 0.3s ease;
+}
+.termos-toggle p strong {
+    font-size: 1.6rem;
+    text-align: justify;
 }
 
 /* Conteúdo escondido */
@@ -69,7 +74,7 @@ span {
     cursor: pointer;
 }
 .termos .checkbox-termos label {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: 380;
     text-align: justify;
     padding-bottom: 2rem;
@@ -82,9 +87,27 @@ button:disabled {
 
 @media (min-width: 768px) {
 
-    .funcionamento .container .box .content p {
+    .container .box .content p {
         font-size: 2rem;
         text-align: left;
         line-height: 1.8;
+    }
+    h3 {
+        font-size: 2.8rem;
+        text-align: left;
+        padding-top: 1rem;
+    }
+    .termos .checkbox-termos input {
+        margin-top: .9rem;
+    }
+    .termos .checkbox-termos label {
+        font-size: 1.9rem;
+        line-height: 1.8;
+    }
+    .termos-toggle p strong {
+        font-size: 2rem;
+    }
+    span {
+        font-size: 2.6rem;
     }
 }

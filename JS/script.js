@@ -195,3 +195,46 @@ document.addEventListener("DOMContentLoaded", () => {
         );
     });
 });
+
+// ===== Controle estável de vídeos (Testemunhos) ===== 
+document.querySelectorAll('.testemunhos .slide').forEach(slide => { 
+    const iframe = slide.querySelector('iframe'); 
+    if (!iframe) return; 
+    
+    const baseSrc = iframe.src; 
+    // Tap inicia o vídeo 
+    slide.addEventListener('click', () => {
+        iframe.classList.add('ativo');
+
+        if (!iframe.src.includes('autoplay=1')) {
+            iframe.src = baseSrc + '&autoplay=1';
+        }
+    }); 
+}); 
+
+// Sempre que o carrossel mover → parar vídeos 
+document.querySelectorAll('.testemunhos .slider').forEach(slider => { 
+    slider.addEventListener('touchstart', () => { 
+        document.querySelectorAll('.testemunhos iframe').forEach(iframe => { 
+            iframe.src = iframe.src.split('&autoplay')[0]; 
+        }); 
+    }, { passive: true }); 
+}); 
+
+// ===== Parar vídeos ao trocar slide (desktop e mobile) ===== 
+function stopAllTestemunhosVideos() {
+    document.querySelectorAll('.testemunhos iframe').forEach(iframe => {
+        iframe.src = iframe.src.split('&autoplay')[0];
+        iframe.classList.remove('ativo'); // 🔑 devolve swipe ao carrossel
+    });
+}
+
+// Setas (desktop) 
+document.querySelectorAll('.testemunhos .carousel-arrow').forEach(arrow => { 
+    arrow.addEventListener('click', stopAllTestemunhosVideos); 
+}); 
+
+// Bullets 
+document.querySelectorAll('.testemunhos .bullets label').forEach(bullet => { 
+    bullet.addEventListener('click', stopAllTestemunhosVideos); 
+});
