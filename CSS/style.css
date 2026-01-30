@@ -1,4 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap');
+
+:root {
+    --bg: #f7f8fa;
+    --text: #1c1c1c;
+    --muted: #6b6b6b;
+    --accent: #8b0000;
+    --border: rgba(0,0,0,.08);
+}
 
 * {
     font-family: 'Roboto', sans-serif;
@@ -11,7 +19,7 @@
 }
 
 html {
-    font-size: 60%;
+    font-size: 62.5%;
     scroll-padding-top: 9rem;
     scroll-behavior: smooth;
 }
@@ -27,7 +35,10 @@ html::-webkit-scrollbar-thumb {
 }
 
 body {
-    background: #fff;
+   font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
 }
 body.no-scroll {
     overflow: hidden;
@@ -38,11 +49,11 @@ section {
 
 /* Cabeçalho */
 .header {
-    background: #f2f5f7;
+    background: #ffffff;
     display: flex;
     align-items: center;
     padding: 0 3rem;
-    border-bottom: .1rem solid rgba(117, 117, 117, 0.3);
+    border-bottom: 1px solid rgba(0,0,0,.06);
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 1000;
@@ -68,7 +79,7 @@ section {
     position: fixed;
     top: 8.9rem;
     left: -100%;
-    background-color: #f2f5f7;
+    background-color: #ffffff;
     height: calc(100dvh - 4.5rem);
     width: 100%;
     text-align: center;
@@ -90,7 +101,7 @@ section {
 .header .navbar ul li a {
     font-size: clamp(20px, 3.5vw, 28px);
     letter-spacing: .1rem;
-    color: #282828;
+    color: #1c1c1c;
     text-decoration: none;
     padding: 8px 15px;
     border-radius: 5px;
@@ -98,7 +109,7 @@ section {
 }
 .header .navbar ul li a.active {
     background: none;
-    color: #820101;
+    color: var(--accent);
 }
 .header .navbar .menu-btn i {
     display: block;
@@ -109,13 +120,21 @@ section {
 
 /* Banner e slogan */
 .inicio {
-    background: url(../IMG/banner.jpeg) no-repeat;
-    background-size: cover;
-    background-position: center top;
     margin-top: 9rem;
-    padding: 5rem 1rem;
-    margin-bottom: 1rem;
+    width: 100%;
+    min-height: clamp(35vh, 50vw, 85vh);
+
+    background-image: url(../IMG/banner.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-color: #0f0f0f; /* ou var(--bg) se preferir claro */
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
+
 .inicio .content {
     width: 100%;
     max-width: 93%;
@@ -127,55 +146,53 @@ section {
 }
 
 h1 {
-    margin: 0;
-    font-size: 2.4rem;
-    font-weight: 500;
-    color: #282828;
-    text-align: left;
-    margin-bottom: 2rem;
-    margin-left: .4rem;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 5vw, 4.2rem);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: var(--text);
+}
+
+p {
+    font-size: 1.7rem;
+    color: var(--muted);
 }
 
 /* Classes gerais */
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    max-width: 1100px;
     margin: 0 auto;
-    gap: 20px;
-    padding: 20px;
-    flex-wrap: wrap;
-    background-color: #f2f5f781;
-    border-radius: 15px;
 }
-.container .box {
-    display: flex;
-    align-items: center;
-    gap: 50px;
+
+.box {
+    background: #fff;
+    border-radius: 20px;
+    padding: clamp(3rem, 5vw, 4.5rem);
+    box-shadow: 0 20px 40px rgba(0,0,0,.05);
 }
-.container .box .content {
-    text-align: right;
-}
-.container .box .content p {
-    font-size: 14px;
-    text-align: justify;
+
+.box p {
+    font-size: 1.8rem;
     line-height: 1.8;
 }
-.container .btn {
+.btn {
     display: inline-block;
-    font-size: 1.2rem;
-    height: 25px;
-    line-height: 25px;
-    padding: 0 7px;
+    margin-top: 2.5rem;
+    padding: 1.1rem 3rem;
+    font-size: 1.3rem;
+    letter-spacing: .18rem;
     text-transform: uppercase;
-    font-weight: bold;
-    color: #820101;
-    letter-spacing: .1rem;
-    border: .2rem solid #820101;
+    font-weight: 600;
+    color: var(--accent);
+    border: 2px solid var(--accent);
     border-radius: 50px;
-    cursor: pointer;
     text-decoration: none;
-    margin-top: 2px;
+}
+
+.btn:hover {
+    background: var(--accent);
+    color: #fff;
 }
 
 .introducao {
@@ -394,6 +411,7 @@ h1 {
         background: #820101;
         color: #fff;
     }
+
     .inicio {
         margin-top: 10.7rem;
         min-height: clamp(55vh, 65vh, 85vh);
@@ -415,35 +433,7 @@ h1 {
         gap: .5rem;
         text-align: right;
     }
-    h1 {
-        text-align: center;
-        font-size: 3.6rem;
-        margin-bottom: 2.5rem;
-    }
-    .container {
-        padding: 4rem 10%;
-    }
-    .container .box .content {
-        padding: 0;
-    }
-    .container .box .content p {
-        font-size: 1.8rem;
-        text-align: justify;
-        line-height: 1.8;
-    }
-    .container .btn {
-        font-size: 1.8rem;
-        height: 35px;
-        line-height: 35px;
-        letter-spacing: .1rem;
-        border: .2rem solid #820101;
-        border-radius: 10px;
-        transition: 0.3s ease;
-    }
-    .container .btn:hover {
-        background: #820101;
-        color: #fff;
-    }
+    
     .introducao {
         margin-top: 1.8rem;
         margin-bottom: 2rem;
@@ -502,6 +492,11 @@ h1 {
         white-space: nowrap;
         padding-bottom: 1rem;
     }
+    .header .navbar ul li a:hover,
+    .header .navbar ul li a.active {
+        background: none;
+        color: var(--accent);
+    }
 }
 @media (min-width: 1100px) {
     .header .navbar {
@@ -534,3 +529,4 @@ h1 {
         padding-inline: clamp(4rem, 1vw, 7%);
     }
 }
+

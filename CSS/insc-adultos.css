@@ -1,38 +1,46 @@
-h3 {
+h3 { 
     font-size: 2rem;
     font-weight: 500;
-    color: #282828;
+    color: #1f1f1f;
     text-align: left;
+    margin-top: 2.5rem;
+    margin-bottom: .8rem;
 }
 
-span {
-    font-size: 1.8rem;
+.funcionamento span {
+    font-size: 1.9rem;
     font-weight: 500;
+    color: #820101;
 }
 
 .termos-accordion {
-    margin-top: 1.5rem;
+    margin-top: 2rem;
     border-top: 1px solid rgba(0, 0, 0, 0.3);
 }
 .termos-toggle {
     width: 100%;
     background: none;
     border: none;
-    padding: 1.2rem 0;
+    padding: 1.4rem 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 1.8rem;
     font-weight: 500;
     cursor: pointer;
-    color: #000;
+    color: #111;
 }
+.termos-toggle:hover {
+    opacity: 0.85;
+}
+
 .termos-toggle i {
     transition: transform 0.3s ease;
 }
-.termos-toggle p strong {
+.termos-accordion .termos-toggle p {
     font-size: 1.6rem;
     text-align: justify;
+    cursor: pointer;
 }
 
 /* Conteúdo escondido */
@@ -43,9 +51,11 @@ span {
 }
 .termos-conteudo p {
     font-size: 1.8rem;
+    line-height: 1.7;
     text-align: justify;
     padding-bottom: 1.5rem;
 }
+
 
 /* Estado aberto */
 .termos-accordion.ativo .termos-conteudo {
@@ -56,28 +66,32 @@ span {
 }
 
 .termos {
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(0,0,0,0.2);
+    margin-top: 3.5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid rgba(0,0,0,0.15);
 }
 .checkbox-termos {
     display: flex;
     align-items: flex-start;
-    gap: 1rem;
+    gap: 1.2rem;
     font-size: 1.6rem;
-    color: #000;
+    color: #222;
     cursor: pointer;
 }
+
 .checkbox-termos input {
-    margin-top: 0.4rem;
+    margin-top: 0.6rem;
     transform: scale(1.3);
     cursor: pointer;
 }
 .termos .checkbox-termos label {
     font-size: 1.6rem;
-    font-weight: 380;
+    font-weight: 400;
     text-align: justify;
-    padding-bottom: 2rem;
+}
+
+.funcionamento .btn {
+    margin-top: 3.5rem;
 }
 
 button:disabled {

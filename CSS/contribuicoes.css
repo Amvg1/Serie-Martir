@@ -1,4 +1,6 @@
-/* Banner e versículo */
+/* =========================
+   BANNER E VERSÍCULO
+========================= */
 .inicio {
     background: url(../IMG/banner-teste.jpg) no-repeat;
     background-size: cover;
@@ -12,18 +14,22 @@
     margin-left: auto;
     margin-right: auto;
 }
+
 .inicio .content {
     text-align: right;
     padding-right: 1rem;
 }
+
 .inicio .content h1 {
     font-size: 2rem;
     color: #282828;
 }
+
 .inicio .content p {
     font-size: 1.4rem;
     color: #282828;
 }
+
 .inicio hr {
     border: none;
     height: .3rem;
@@ -32,14 +38,28 @@
     margin: 1rem 0 .5rem auto;
 }
 
+/* =========================
+   OFERTA
+========================= */
+.oferta .content p {
+    font-size: 1.8rem;
+    line-height: 1.7;
+    text-align: justify;
+}
+
+/* =========================
+   CARROSSEL / MISSÕES
+========================= */
 .carousel-card {
     box-shadow: none;
     padding: 0;
     display: none;
 }
+
 .carousel-title {
     display: none;
 }
+
 .slides .inner {
     width: calc(100% * 4);
 }
@@ -50,7 +70,8 @@
     min-height: 600px;
 }
 
-.slide img, video {
+.slide img,
+.slide video {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -58,130 +79,173 @@
     object-fit: cover;
 }
 
+.missoes .content > p {
+    font-size: 1.8rem;
+    line-height: 1.7;
+    text-align: justify;
+}
+
+/* =========================
+   INFORMAÇÕES / PIX
+========================= */
+.informacoes p:first-child {
+    margin-top: 2rem;
+    padding: 1.2rem 1.4rem;
+    line-height: 1.7;
+    font-weight: 500;
+    border-left: 4px solid #820101;
+}
+.informacoes p:last-child {
+    margin-top: 2rem;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #820101;
+    text-align: center;
+    padding: 1.5rem;
+    border: 1px solid rgba(130, 1, 1, 0.3);
+    border-radius: 8px;
+    background: rgba(130, 1, 1, 0.05);
+}
+
+/* =========================
+   MEDIA QUERIES
+========================= */
 @media (min-width: 361px) {
     .inicio {
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        padding: 3rem 5%;        
+        padding: 3rem 5%;
     }
+
     .inicio .content h1 {
         font-size: clamp(2rem, 4vw, 3rem);
     }
+
     .inicio .content p {
         font-size: clamp(1.6rem, 3vw, 2rem);
     }
+
     .inicio hr {
         width: clamp(14rem, 35vw, 15rem);
     }
 }
+
 @media (min-width: 420px) {
     .inicio .content {
         padding-right: 2rem;
     }
+
     .inicio .content h1 {
         font-size: clamp(2.4rem, 4vw, 3rem);
     }
+
     .inicio .content p {
         font-size: clamp(1.8rem, 3vw, 2rem);
     }
+
     .inicio hr {
         width: clamp(16rem, 37vw, 18rem);
     }
 }
+
 @media (min-width: 500px) {
-    .inicio .content {
-        padding-right: 2rem;
-    }
     .inicio .content h1 {
         font-size: clamp(3rem, 4vw, 3rem);
     }
+
     .inicio .content p {
         font-size: clamp(2rem, 3vw, 2rem);
     }
+
     .inicio hr {
         width: clamp(18rem, 37vw, 28rem);
     }
 }
+
 @media (min-width: 600px) {
-    .inicio .content {
-        padding-right: 2rem;
-    }
     .inicio .content h1 {
         font-size: clamp(3.7rem, 4vw, 3rem);
     }
+
     .inicio .content p {
         font-size: clamp(2.5rem, 3vw, 2rem);
     }
+
     .inicio hr {
         width: clamp(25rem, 37vw, 26rem);
     }
 }
+
 @media (min-width: 700px) {
     .inicio {
         max-width: calc(100% - 10%);
     }
-    .inicio .content {
-        padding-right: 2rem;
-    }
+
     .inicio .content h1 {
         font-size: clamp(4.2rem, 4vw, 3rem);
         line-height: 1.3;
     }
+
     .inicio .content p {
         font-size: clamp(2.9rem, 3vw, 2rem);
         line-height: 1.4;
     }
+
     .inicio hr {
         width: clamp(30rem, 37vw, 35rem);
-        height: 0.3rem;
+    }
+}
+
+@media (min-width: 768px) {
+
+    .oferta .content p {
+        font-size: 2rem;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .informacoes p:last-child {
+        font-size: 2.4rem;
+        max-width: 600px;
+        margin: 3rem auto 0;
     }
 }
 
 @media (min-width: 900px) {
-
     .inicio {
         margin: 10.7rem auto 0;
         max-width: calc(100% - 12%);
         min-height: clamp(55vh, 65vh, 7vh);
         padding: 4rem;
-        border-radius: 10px;
-        background-size: cover;
-        background-position: center top;
         margin-bottom: 2rem;
     }
 
     .inicio .content {
-        text-align: right;
         padding-right: clamp(2rem, 3vw, 7%);
     }
 
     .inicio .content h1 {
         font-size: clamp(3.2rem, 4vw, 4.5rem);
-        line-height: 1.2;
     }
 
     .inicio .content p {
         font-size: clamp(2rem, 2.6vw, 2.8rem);
-        line-height: 1.3;
     }
 
     .inicio hr {
-        width: clamp(20rem, 35vw, 35rem);
         height: .5rem;
-        margin: 0 0 1rem auto;
     }
 
     .missoes .content {
         display: flex;
         align-items: stretch;
-        gap: 2rem;
+        gap: 3rem;
     }
 
     .carousel-card {
         display: flex;
         flex: 1;
-        height: auto;
         flex-direction: column;
     }
 
@@ -191,7 +255,8 @@
 
     .missoes .content > p {
         flex: 1;
-        margin: 0;
+        font-size: 1.9rem;
+        line-height: 1.8;
     }
 
     .missoes .slider,
@@ -200,17 +265,13 @@
     .missoes .slides .inner {
         height: 100%;
     }
-
-    .missoes .slides .inner {
-        min-height: unset;
-        max-height: unset;
-    }
 }
 
 @media (min-width: 1100px) {
     .inicio {
         min-height: 65dvh;
     }
+
     .inicio .content {
         padding-right: clamp(2rem, 6dvw, 7%);
     }

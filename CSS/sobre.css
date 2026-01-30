@@ -1,18 +1,35 @@
 h2 {
-    text-align: justify;
-    font-size: 16px;
-    color: #181818;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 4vw, 3.2rem);
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.box p {
+    max-width: 75ch;
+    margin-inline: auto;
 }
 
 .container .box .content img {
     width: 100%;
     height: 100%;
     margin-top: 10px;
-    border-radius: 5px;
+    border-radius: 18px;
+    box-shadow: 0 15px 35px rgba(0,0,0,.08);
 }
 
 .fundadora .container .box .content img {
     margin-bottom: 10px;
+}
+
+.apoio .container .box .content img {
+    max-width: 135ch;
+    width: 100%;
+    margin-inline: auto;
+    display: block;
+    margin-top: 2.5rem;
 }
 
 .local-imagem p, .local-mapa p {
@@ -47,7 +64,12 @@ h2 {
             "titulo titulo"
             "imagem texto";
         column-gap: 2rem;
-        align-items: stretch;
+        align-items: start;
+    }
+
+    .fundadora .container .box .content p {
+        font-size: 1.8rem;
+        line-height: 1.8;
     }
 
     .fundadora .container .box .content img {
