@@ -98,6 +98,9 @@ button:disabled {
     opacity: 0.5;
     cursor: not-allowed;
 }
+#btn-inscricao:not(:disabled) {
+    cursor: pointer;
+}
 
 @media (min-width: 768px) {
 

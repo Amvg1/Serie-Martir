@@ -210,7 +210,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         window.open(
             "https://forms.gle/KgvdPqASqyxni4Ho9",
-            "_blank"
+            "_blank", "noopener noreferrer"
         );
     });
 });
