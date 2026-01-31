@@ -156,7 +156,7 @@ h1 {
 
 p {
     font-size: 1.7rem;
-    color: var(--muted);
+    color: #474747;
 }
 
 /* Classes gerais */
@@ -369,7 +369,7 @@ p {
     }
     .header .navbar .logo img {
         padding-top: 0;
-        height: 48px; /* opcional, mas ajuda a padronizar */
+        height: 48px;
     }
     .header .navbar .menu-btn {
         display: none;
@@ -399,7 +399,7 @@ p {
         margin-bottom: 0; 
     }
     .header .navbar ul li a {
-        font-size: 1.5rem;
+        font-size: 1.7rem;
         letter-spacing: .1rem;
         color: #282828;
         padding: 6px 10px;

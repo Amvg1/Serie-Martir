@@ -36,9 +36,23 @@ document.querySelectorAll(".carousel-card").forEach(card => {
         }
     }
 
+    allSlides.forEach(slide => {
+        slide.addEventListener("click", () => {
+            stopAutoplay();
+        });
+    });
+
+    function stopAllCarouselVideos(card) {
+        card.querySelectorAll("video").forEach(video => {
+            video.pause();
+            video.currentTime = 0;
+        });
+    }
+
     if (isMissoes) {
         autoplayInterval = setInterval(() => {
             if (isDragging || isAnimating) return;
+            stopAllCarouselVideos(card);
             index++;
             move(true);
             updateBullets();
@@ -107,8 +121,10 @@ document.querySelectorAll(".carousel-card").forEach(card => {
 
     slider.addEventListener("touchend", () => {
         isDragging = false;
-        const delta = currentX - startX;
 
+        stopAllCarouselVideos(card);
+
+        const delta = currentX - startX;
         if (delta < -slideWidth() / 4) index++;
         else if (delta > slideWidth() / 4) index--;
 
@@ -129,6 +145,7 @@ document.querySelectorAll(".carousel-card").forEach(card => {
     bullets.forEach((b, i) => {
         b.addEventListener("click", () => {
             stopAutoplay();
+            stopAllCarouselVideos(card);
             index = i + 1;
             move(true);
             updateBullets();
@@ -142,6 +159,7 @@ document.querySelectorAll(".carousel-card").forEach(card => {
     left?.addEventListener("click", () => {
         stopAutoplay();
         if (isAnimating) return;
+        stopAllCarouselVideos(card);
         index--;
         move(true);
         updateBullets();
@@ -151,6 +169,7 @@ document.querySelectorAll(".carousel-card").forEach(card => {
     right?.addEventListener("click", () => {
         stopAutoplay();
         if (isAnimating) return;
+        stopAllCarouselVideos(card);
         index++;
         move(true);
         updateBullets();
@@ -196,45 +215,82 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// ===== Controle estável de vídeos (Testemunhos) ===== 
-document.querySelectorAll('.testemunhos .slide').forEach(slide => { 
-    const iframe = slide.querySelector('iframe'); 
-    if (!iframe) return; 
-    
-    const baseSrc = iframe.src; 
-    // Tap inicia o vídeo 
-    slide.addEventListener('click', () => {
-        iframe.classList.add('ativo');
 
-        if (!iframe.src.includes('autoplay=1')) {
-            iframe.src = baseSrc + '&autoplay=1';
-        }
-    }); 
-}); 
 
-// Sempre que o carrossel mover → parar vídeos 
-document.querySelectorAll('.testemunhos .slider').forEach(slider => { 
-    slider.addEventListener('touchstart', () => { 
-        document.querySelectorAll('.testemunhos iframe').forEach(iframe => { 
-            iframe.src = iframe.src.split('&autoplay')[0]; 
-        }); 
-    }, { passive: true }); 
-}); 
 
-// ===== Parar vídeos ao trocar slide (desktop e mobile) ===== 
+// ===================================================
+// CONTROLE ÚNICO E ESTÁVEL DE VÍDEOS (TESTEMUNHOS)
+// ===================================================
+
+// YouTube API helpers
+function ytPlay(iframe) {
+    iframe.contentWindow.postMessage(JSON.stringify({
+        event: "command",
+        func: "playVideo",
+        args: []
+    }), "*");
+}
+
+function ytPause(iframe) {
+    iframe.contentWindow.postMessage(JSON.stringify({
+        event: "command",
+        func: "pauseVideo",
+        args: []
+    }), "*");
+}
+
+// Pausa todos os vídeos (SEM reset)
 function stopAllTestemunhosVideos() {
     document.querySelectorAll('.testemunhos iframe').forEach(iframe => {
-        iframe.src = iframe.src.split('&autoplay')[0];
-        iframe.classList.remove('ativo'); // 🔑 devolve swipe ao carrossel
+        ytPause(iframe);
+    });
+
+    document.querySelectorAll('.testemunhos .video-overlay').forEach(o => {
+        o.classList.remove('hidden');
+    });
+
+    document.querySelectorAll('.testemunhos .slide').forEach(slide => {
+        slide.dataset.playing = "false";
     });
 }
 
-// Setas (desktop) 
-document.querySelectorAll('.testemunhos .carousel-arrow').forEach(arrow => { 
-    arrow.addEventListener('click', stopAllTestemunhosVideos); 
-}); 
+// Controle play / pause por overlay
+document.querySelectorAll('.testemunhos .slide').forEach(slide => {
+    const iframe = slide.querySelector('iframe');
+    const overlay = slide.querySelector('.video-overlay');
+    if (!iframe || !overlay) return;
 
-// Bullets 
-document.querySelectorAll('.testemunhos .bullets label').forEach(bullet => { 
-    bullet.addEventListener('click', stopAllTestemunhosVideos); 
+    slide.dataset.playing = "false";
+
+    overlay.addEventListener('click', e => {
+        e.stopPropagation();
+
+        const playing = slide.dataset.playing === "true";
+
+        if (!playing) {
+            stopAllTestemunhosVideos();
+            ytPlay(iframe);
+            overlay.classList.add('hidden');
+            slide.dataset.playing = "true";
+        } else {
+            ytPause(iframe);
+            overlay.classList.remove('hidden');
+            slide.dataset.playing = "false";
+        }
+    });
+});
+
+// Swipe → pausa (SEM piscar)
+document.querySelectorAll('.testemunhos .slider').forEach(slider => {
+    slider.addEventListener('touchstart', stopAllTestemunhosVideos, { passive: true });
+});
+
+// Setas
+document.querySelectorAll('.testemunhos .carousel-arrow').forEach(btn => {
+    btn.addEventListener('click', stopAllTestemunhosVideos);
+});
+
+// Bullets
+document.querySelectorAll('.testemunhos .bullets label').forEach(bullet => {
+    bullet.addEventListener('click', stopAllTestemunhosVideos);
 });

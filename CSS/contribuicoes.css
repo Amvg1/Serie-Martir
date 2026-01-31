@@ -50,39 +50,77 @@
 /* =========================
    CARROSSEL / MISSÕES
 ========================= */
-.carousel-card {
+.missoes .carousel-card {
     box-shadow: none;
     padding: 0;
+}
+
+.missoes .carousel-title {
     display: none;
 }
 
-.carousel-title {
-    display: none;
-}
-
-.slides .inner {
+.missoes .slides .inner {
     width: calc(100% * 4);
 }
 
 /* Slide individual */
-.slides .slide {
+.missoes .slides .slide {
     width: calc(100% / 4);
-    min-height: 600px;
+    min-height: 380px;
+    position: relative;
+    overflow: hidden;
 }
 
-.slide img,
-.slide video {
+.missoes .slide img,
+.missoes .slide video {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
+.missoes .slide video {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+video:fullscreen {
+    object-fit: contain !important;
+    background: black;
+}
+
+/* Safari */
+video:-webkit-full-screen {
+    object-fit: contain !important;
+    background: black;
+}
+
+/* Firefox */
+video:-moz-full-screen {
+    object-fit: contain !important;
+    background: black;
+}
 
 .missoes .content > p {
     font-size: 1.8rem;
     line-height: 1.7;
     text-align: justify;
+}
+
+.missoes .content {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+/* texto primeiro */
+.missoes .content > p {
+    order: 1;
+}
+
+/* carrossel depois */
+.missoes .carousel-card {
+    order: 2;
 }
 
 /* =========================
@@ -106,6 +144,13 @@
     border-radius: 8px;
     background: rgba(130, 1, 1, 0.05);
 }
+
+.missoes .slider,
+    .missoes .overflow,
+    .missoes .slides,
+    .missoes .slides .inner {
+        height: 100%;
+    }
 
 /* =========================
    MEDIA QUERIES
@@ -163,6 +208,12 @@
     }
 }
 
+@media (min-width: 591px) {
+    .missoes .slides .slide {
+        min-height: 400px;
+    }
+}
+
 @media (min-width: 600px) {
     .inicio .content h1 {
         font-size: clamp(3.7rem, 4vw, 3rem);
@@ -174,6 +225,18 @@
 
     .inicio hr {
         width: clamp(25rem, 37vw, 26rem);
+    }
+}
+
+@media (min-width: 611px) {
+    .missoes .slides .slide {
+        min-height: 450px;
+    }
+}
+
+@media (min-width: 681px) {
+    .missoes .slides .slide {
+        min-height: 500px;
     }
 }
 
@@ -197,6 +260,12 @@
     }
 }
 
+@media (min-width: 741px) {
+    .missoes .slides .slide {
+        min-height: 550px;
+    }
+}
+
 @media (min-width: 768px) {
 
     .oferta .content p {
@@ -209,6 +278,22 @@
         font-size: 2.4rem;
         max-width: 600px;
         margin: 3rem auto 0;
+    }
+}
+
+@media (min-width: 821px) {
+    .missoes .slides .slide {
+        min-height: 620px;
+    }
+}
+
+@media (min-width: 899px) {
+    .missoes .slides .inner {
+        width: calc(99.99% * 4);
+    }
+    .missoes .slides .slide {
+        width: calc(99.99% / 4);
+        min-height: 620px;
     }
 }
 
@@ -237,13 +322,26 @@
         height: .5rem;
     }
 
-    .missoes .content {
-        display: flex;
-        align-items: stretch;
-        gap: 3rem;
+    .missoes .slides .inner {
+        width: calc(100% * 4);
+    }
+    .missoes .slides .slide {
+        width: calc(100% / 4);
+        min-height: 620px;
     }
 
-    .carousel-card {
+    .missoes .content {
+        flex-direction: row;
+        display: flex;
+        align-items: stretch;
+    }
+
+    .missoes .content > p,
+    .missoes .carousel-card {
+        order: unset;
+    }
+    
+    .missoes .carousel-card {
         display: flex;
         flex: 1;
         flex-direction: column;
@@ -257,13 +355,6 @@
         flex: 1;
         font-size: 1.9rem;
         line-height: 1.8;
-    }
-
-    .missoes .slider,
-    .missoes .overflow,
-    .missoes .slides,
-    .missoes .slides .inner {
-        height: 100%;
     }
 }
 
