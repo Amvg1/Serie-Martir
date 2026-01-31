@@ -197,6 +197,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const checkbox = document.getElementById("aceite-termos");
     const btnInscricao = document.getElementById("btn-inscricao");
 
+    if (!checkbox || !btnInscricao) return;
     btnInscricao.disabled = true;
 
     checkbox.addEventListener("change", () => {
@@ -210,7 +211,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         window.open(
             "https://forms.gle/KgvdPqASqyxni4Ho9",
-            "_blank", "noopener noreferrer"
+            "_blank", 
+            "noopener noreferrer"
         );
     });
 });
