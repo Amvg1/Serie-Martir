@@ -210,7 +210,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!checkbox.checked) return;
 
         window.open(
-            "https://forms.gle/KgvdPqASqyxni4Ho9",
+            "https://forms.gle/r7CYvor5MSTJHfoS7",
             "_blank", 
             "noopener noreferrer"
         );

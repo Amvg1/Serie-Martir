@@ -1,20 +1,143 @@
-.container .box .content ul {
-    list-style: none;
+.banner-kids img {
+    max-width: 146ch;
+    width: 100%;
+    margin-inline: auto;
+    display: block;
+    margin-top: 8.2rem;
+    border-radius: 10px;
 }
-.container .box .content ul li {
-    font-size: 14px;
+
+h3 { 
+    font-size: 2rem;
+    font-weight: 500;
+    color: #282828;
+    text-align: left;
+    margin-top: 2.5rem;
+    margin-bottom: .8rem;
+}
+
+.funcionamento span {
+    font-size: 1.9rem;
+    font-weight: 500;
+    color: #820101;
+}
+
+.termos-accordion {
+    margin-top: 2rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
+}
+.termos-toggle {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 1.4rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    color: #111;
+}
+.termos-toggle:hover {
+    opacity: 0.85;
+}
+
+.termos-toggle i {
+    transition: transform 0.3s ease;
+}
+.termos-accordion .termos-toggle p {
+    font-size: 1.8rem;
+    text-align: justify;
+    cursor: pointer;
+    color: #1f1f1f;
+}
+
+/* Conteúdo escondido */
+.termos-conteudo {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+.termos-conteudo p {
+    font-size: 1.8rem;
+    line-height: 1.7;
+    text-align: justify;
+    padding-bottom: 1.5rem;
+}
+
+/* Estado aberto */
+.termos-accordion.ativo .termos-conteudo {
+    max-height: 1000px; 
+}
+.termos-accordion.ativo .termos-toggle i {
+    transform: rotate(180deg);
+}
+
+.termos {
+    margin-top: 3.5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid rgba(0,0,0,0.15);
+}
+.checkbox-termos {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+    font-size: 1.6rem;
+    color: #222;
+    cursor: pointer;
+}
+
+.checkbox-termos input {
+    margin-top: 0.6rem;
+    transform: scale(1.3);
+    cursor: pointer;
+}
+.termos .checkbox-termos label {
+    font-size: 1.6rem;
+    font-weight: 400;
     text-align: justify;
 }
 
-@media (min-width: 768px) {
+.funcionamento .btn {
+    margin-top: 3.5rem;
+}
 
-    .pacote .container .box .content ul {
-        text-align: left;
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+#btn-inscricao:not(:disabled) {
+    cursor: pointer;
+}
+
+@media (min-width: 768px) {
+    .banner-kids img {
+        max-width: 187ch;
+        margin-top: 8.68rem;
     }
-    .pacote .container .box .content ul li,
-    .funcionamento .container .box .content p {
+
+    .container .box .content p {
         font-size: 2rem;
         text-align: left;
         line-height: 1.8;
+    }
+    h3 {
+        font-size: 2.8rem;
+        text-align: left;
+        padding-top: 1rem;
+    }
+    .termos .checkbox-termos input {
+        margin-top: .9rem;
+    }
+    .termos .checkbox-termos label {
+        font-size: 1.9rem;
+        line-height: 1.8;
+    }
+    .termos-toggle p strong {
+        font-size: 2rem;
+    }
+    span {
+        font-size: 2.6rem;
     }
 }
