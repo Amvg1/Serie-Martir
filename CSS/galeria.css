@@ -132,6 +132,26 @@ section .formaturas h1 {
     display: none;
 }
 
+@media (max-width: 768px) {
+
+    /* remove altura forçada */
+    .formaturas .slides .inner {
+        height: auto !important;
+    }
+
+    /* cada slide passa a definir sua própria altura */
+    .formaturas .slide {
+        aspect-ratio: 3 / 2; /* ajuste ideal para fotos de grupo */
+        height: auto;
+        background-position: center top;
+    }
+
+    /* garante que o carrossel funcione corretamente */
+    .formaturas .overflow {
+        height: auto;
+    }
+}
+
 @media (min-width: 891px) {
     .slides .inner {
         width: calc(100.02% * 4);
